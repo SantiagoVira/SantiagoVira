@@ -1,4 +1,6 @@
-### Hi there 👋
+### I'm Santiago!
+
+My name is Santiago Vira, I go by he/they pronouns, and I code things good!! I specialize in frontend but I can do backend work in a pinch!
 
 <!--
 **SantiagoVira/SantiagoVira** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
