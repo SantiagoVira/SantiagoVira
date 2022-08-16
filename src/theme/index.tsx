@@ -4,10 +4,6 @@ import { colors } from "./colors";
 export const theme = extendTheme({
   colors,
   initialColorMode: "dark",
-  fonts: {
-    heading: "Poppins",
-    body: "Poppins",
-  },
   styles: {
     global: {
       ":root": {
