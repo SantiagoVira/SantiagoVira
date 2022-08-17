@@ -1,13 +1,13 @@
 import Head from "next/head";
 
 const Title: React.FC<{ page?: string }> = ({ page = "" }) => {
+  const title = `${page && `${page} | `}Santiago Vira`;
   return (
     <Head>
-      <title>{page && `${page} | `}Santiago Vira</title>
+      <title>{title}</title>
       <meta property="og:title" content="Santiago Vira" />
-      <meta property="og:site_name" content="Santiago" />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://santiagovira.netlify.app" />
+      <meta property="og:url" content="https://santiagovira.vercel.app" />
       <meta content="summary_large_image" property="twitter:card" />
       <meta content="/cover.png" property="og:image" />
       <meta

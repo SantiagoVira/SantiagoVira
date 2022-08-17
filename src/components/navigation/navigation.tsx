@@ -26,7 +26,11 @@ interface INavigationProps {
 }
 
 export const Logo: React.FC<ImageProps> = (props) => (
-  <Image src="/Fox.svg" alt="logo" height="2.75rem" {...props} />
+  <NextLink href="/" passHref>
+    <Link>
+      <Image src="/Fox.svg" alt="logo" height="2.75rem" {...props} />
+    </Link>
+  </NextLink>
 );
 
 export const Navigation: React.FC<INavigationProps> = ({ selectedTab }) => {
