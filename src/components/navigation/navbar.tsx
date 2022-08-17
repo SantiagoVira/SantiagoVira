@@ -1,9 +1,13 @@
 import { useIsMobile } from "@hooks/useIsMobile";
-import { MobileNavigation, Navigation } from "./navigation";
+import { INavigationProps, MobileNavigation, Navigation } from "./navigation";
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC<INavigationProps> = ({ selectedTab }) => {
   const isMobile = useIsMobile();
-  return isMobile ? <MobileNavigation /> : <Navigation />;
+  return isMobile ? (
+    <MobileNavigation selectedTab={selectedTab} />
+  ) : (
+    <Navigation selectedTab={selectedTab} />
+  );
 };
 
 export default Navbar;

@@ -1,6 +1,5 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import Layout from "@components/layout";
-import Navbar from "@components/navigation/navbar";
 import Title from "@components/title";
 import type { NextPage } from "next";
 import { Animation, spinUpVariants } from "@components/animation/animations";
@@ -18,7 +17,6 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <Title />
-      <Navbar />
       <Flex flexDirection="column" flex={1} w="100%" p="1.4rem">
         <Animation variants={spinUpVariants}>
           <Heading display="inline-block" fontSize="3.5rem">

@@ -13,22 +13,23 @@ import {
   useDisclosure,
   Image,
   ImageProps,
+  Button,
 } from "@chakra-ui/react";
+import Logo from "@components/logo";
 import { Cross } from "hamburger-react";
 import NextLink from "next/link";
 import type React from "react";
 import { Tab } from "./tab";
 import { navigationTabs, ITab } from "./tabs";
 
-interface INavigationProps {
-  tabList?: ITab[];
+export interface INavigationProps {
   selectedTab?: ITab;
 }
 
-export const Logo: React.FC<ImageProps> = (props) => (
+export const LogoLink: React.FC<{ highlight?: boolean }> = ({ highlight }) => (
   <NextLink href="/" passHref>
     <Link>
-      <Image src="/Fox.svg" alt="logo" height="2.75rem" {...props} />
+      <Logo color={highlight ? "white" : "#ffffffa1"} />
     </Link>
   </NextLink>
 );
@@ -44,21 +45,22 @@ export const Navigation: React.FC<INavigationProps> = ({ selectedTab }) => {
       maxW="100rem"
       justifyContent="space-between">
       <Flex flex={1}>
-        <Logo />
+        <LogoLink highlight={selectedTab === undefined} />
       </Flex>
-      <Flex flex={2}>
-        <Flex w="50%" justifyContent="center">
-          <Flex alignItems="center" gap="2.5rem">
-            {navigationTabs.map((tab, index) => (
-              <Tab
-                tab={tab}
-                key={index}
-                selected={tab === selectedTab}
-                passQuery={false}
-              />
-            ))}
-          </Flex>
-        </Flex>
+      <Flex flex={1} justifyContent="center" alignItems="center" gap="2.5rem">
+        {navigationTabs.map((tab, index) => (
+          <Tab
+            tab={tab}
+            key={index}
+            selected={tab === selectedTab}
+            passQuery={false}
+          />
+        ))}
+      </Flex>
+      <Flex flex={1} justifyContent="flex-end">
+        <Button as={Link} href="/Santiago_Vira_Resume.pdf" download>
+          Download my resume
+        </Button>
       </Flex>
     </Flex>
   );
@@ -79,7 +81,7 @@ export const MobileNavigation: React.FC<INavigationProps> = ({
         bgColor={controls.isOpen ? "bg.950" : undefined}
         justifyContent="space-between"
         alignItems="center">
-        <Logo />
+        <LogoLink />
         <Cross onToggle={controls.onToggle} />
       </Flex>
       <Collapse in={controls.isOpen}>

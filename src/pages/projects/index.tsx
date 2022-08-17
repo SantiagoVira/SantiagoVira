@@ -7,9 +7,7 @@ import type { NextPage } from "next";
 
 const Projects: NextPage = () => {
   return (
-    <Layout>
-      <Title page="Projects" />
-      <Navbar />
+    <Layout pageIndex={0}>
       <SimpleGrid columns={[1, 2, 3]} gap="1rem">
         <Project
           image="image here"

@@ -6,14 +6,12 @@ import type { ITab } from "./tabs";
 interface ITabProps {
   tab: ITab;
   selected: boolean;
-  showIcon?: boolean;
   passQuery?: boolean;
 }
 
 export const Tab: React.FC<ITabProps> = ({
   tab,
   selected,
-  showIcon = false,
   passQuery = true,
 }) => {
   const { query } = useRouter();
