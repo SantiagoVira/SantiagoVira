@@ -43,3 +43,5 @@ export default function SlideUpAnimation() {
     </motion.div>
   );
 }
+
+// https://codesandbox.io/s/z7udk?file=/src/App.js:0-1145
