@@ -9,7 +9,7 @@ const Title: React.FC<{ page?: string }> = ({ page = "" }) => {
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://santiagovira.netlify.app" />
       <meta content="summary_large_image" property="twitter:card" />
-      <meta content="/astrius_cover.png" property="og:image" />
+      <meta content="/cover.png" property="og:image" />
       <meta
         property="og:description"
         content="Rising highschool junior and frontend designer with a broken sleep schedule and a computer."
