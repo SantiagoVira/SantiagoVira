@@ -1,15 +1,8 @@
 import { Box, Text } from "@chakra-ui/react";
 import { motion, Variants } from "framer-motion";
+import React from "react";
 
-export default function SlideUpAnimation() {
-  // Placeholder text data, as if from API
-  const placeholderText = [
-    { text: "Framer Motion" },
-    {
-      text: "Animating responsive text!",
-    },
-  ];
-
+const SlideUpAnimation: React.FC<{ text: { text: string }[] }> = ({ text }) => {
   const containerVariants: Variants = {
     visible: {
       transition: {
@@ -31,7 +24,7 @@ export default function SlideUpAnimation() {
 
   return (
     <motion.div initial="hidden" animate="visible" variants={containerVariants}>
-      {placeholderText.map((item, index) => (
+      {text.map((item, index) => (
         <Text overflow="hidden" whiteSpace="nowrap" key={index}>
           <motion.span
             style={{ display: "inline-block" }}
@@ -42,6 +35,8 @@ export default function SlideUpAnimation() {
       ))}
     </motion.div>
   );
-}
+};
 
 // https://codesandbox.io/s/z7udk?file=/src/App.js:0-1145
+
+export default SlideUpAnimation;

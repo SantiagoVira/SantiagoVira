@@ -3,14 +3,14 @@ import NextLink from "next/link";
 
 const Project: React.FC<{
   image: any;
-  name: string;
+  title: string;
   link: string;
   description: string;
-}> = ({ image, name, link, description }) => {
+}> = ({ image, title, link, description }) => {
   return (
     <Flex
       border="1px solid"
-      borderColor="bg.700"
+      borderColor="bg.500"
       p="1.5rem"
       borderRadius="12px"
       flexDirection="column">
@@ -18,7 +18,7 @@ const Project: React.FC<{
       <NextLink href={link} passHref>
         <Link display="flex" alignItems="center" gap="0.5rem" color="white">
           <Text fontWeight="bold" fontSize="1.15rem">
-            {name}
+            {title}
           </Text>
         </Link>
       </NextLink>

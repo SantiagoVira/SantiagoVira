@@ -5,33 +5,33 @@ import Project from "@components/projects/project";
 import Title from "@components/title";
 import type { NextPage } from "next";
 
-const About: NextPage = () => {
+const Projects: NextPage = () => {
   return (
     <Layout>
-      <Title />
+      <Title page="Projects" />
       <Navbar />
-      <SimpleGrid columns={[1, 2, 3]} gap="1rem" p="1rem">
+      <SimpleGrid columns={[1, 2, 3]} gap="1rem">
         <Project
           image="image here"
-          name="Hello"
+          title="Hello"
           link="edfd"
           description="THis is my greatest project"
         />
         <Project
           image="image here"
-          name="Hello"
+          title="Hello"
           link="edfd"
           description="THis is my greatest project"
         />
         <Project
           image="image here"
-          name="Hello"
+          title="Hello"
           link="edfd"
           description="THis is my greatest project"
         />
         <Project
           image="image here"
-          name="Hello"
+          title="Hello"
           link="edfd"
           description="THis is my greatest project"
         />
@@ -40,4 +40,4 @@ const About: NextPage = () => {
   );
 };
 
-export default About;
+export default Projects;

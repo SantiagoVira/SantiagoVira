@@ -1,17 +1,22 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Accordion } from "@chakra-ui/react";
+import { Category } from "@components/experience/category";
 import Layout from "@components/layout";
 import Navbar from "@components/navigation/navbar";
 import Title from "@components/title";
 import type { NextPage } from "next";
 
-const About: NextPage = () => {
+const Experience: NextPage = () => {
   return (
     <Layout>
-      <Title />
+      <Title page="Experience" />
       <Navbar />
-      <Heading>experience</Heading>
+      <Accordion allowMultiple>
+        <Category title="TechCodes" text="hola" />
+        <Category title="TechCodes" text="hola" />
+        <Category title="TechCodes" text="hola" />
+      </Accordion>
     </Layout>
   );
 };
 
-export default About;
+export default Experience;
