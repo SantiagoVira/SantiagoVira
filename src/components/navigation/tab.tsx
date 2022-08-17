@@ -25,15 +25,12 @@ export const Tab: React.FC<ITabProps> = ({
         hash: tab.hash,
         query: passQuery ? query : undefined,
       }}
-      passHref
-    >
+      passHref>
       <Link
         display="flex"
         alignItems="center"
         gap="0.5rem"
-        color={selected ? "white" : "whiteAlpha.700"}
-      >
-        {tab.icon && showIcon && <tab.icon />}
+        color={selected ? "white" : "whiteAlpha.700"}>
         <Text fontWeight="medium">{tab.name}</Text>
       </Link>
     </NextLink>

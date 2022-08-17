@@ -14,6 +14,7 @@ import {
 export interface ITab {
   name: string;
   route?: string;
+  hash?: string;
 }
 
 export const navigationTabs: ITab[] = [
