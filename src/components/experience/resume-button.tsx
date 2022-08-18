@@ -1,11 +1,9 @@
 import { Button, Link } from "@chakra-ui/react";
 import client from "@components/cms/cms-data";
-import { useGetFiles } from "@components/cms/useGetFiles";
 import { useEffect, useState } from "react";
 
 const ResumeButton: React.FC = () => {
-  const { files } = useGetFiles();
-  const [fileLink, setFileLink] = useState("null");
+  const [fileLink, setFileLink] = useState("");
 
   useEffect(() => {
     const getResume = async () => {
@@ -13,13 +11,12 @@ const ResumeButton: React.FC = () => {
         title,
         "link": file.asset->url
       }`);
-      console.log(resume[0].link);
 
       setFileLink(resume[0].link);
     };
 
     getResume();
-  }, [files]);
+  }, []);
 
   return (
     <Button

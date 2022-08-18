@@ -15,7 +15,6 @@ import {
   ImageProps,
   Button,
 } from "@chakra-ui/react";
-import { useGetFiles } from "@components/cms/useGetFiles";
 import ResumeButton from "@components/experience/resume-button";
 import Logo from "@components/logo";
 import { Cross } from "hamburger-react";

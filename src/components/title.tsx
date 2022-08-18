@@ -14,7 +14,7 @@ const Title: React.FC<{ page?: string }> = ({ page = "" }) => {
         property="og:description"
         content="Rising highschool junior and frontend designer with a broken sleep schedule and a computer."
       />
-      <meta name="theme-color" content="#D53F8C" />
+      <meta name="theme-color" content="#114CAB" />
     </Head>
   );
 };
