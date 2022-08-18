@@ -15,6 +15,7 @@ import {
   ImageProps,
   Button,
 } from "@chakra-ui/react";
+import { useGetFiles } from "@components/cms/useGetFiles";
 import ResumeButton from "@components/experience/resume-button";
 import Logo from "@components/logo";
 import { Cross } from "hamburger-react";
@@ -69,7 +70,6 @@ export const MobileNavigation: React.FC<INavigationProps> = ({
   selectedTab,
 }) => {
   const controls = useDisclosure();
-
   return (
     <>
       <Flex
@@ -95,7 +95,9 @@ export const MobileNavigation: React.FC<INavigationProps> = ({
               />
             ))}
             <Divider />
-            <Link href="/Santiago_Vira_Resume.pdf" download>
+            <Link
+              href="/Santiago_Vira_Resume.pdf"
+              download="Santiago_Vira_Resume">
               Download my resume
             </Link>
           </Flex>

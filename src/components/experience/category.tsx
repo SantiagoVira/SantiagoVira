@@ -18,9 +18,9 @@ export const Category: React.FC<{ title: string; text: string }> = ({
         <Heading flex={1} textAlign="left" pl="0.4rem">
           {title}{" "}
         </Heading>
-        <AccordionIcon />
+        <AccordionIcon boxSize="1.8rem" />
       </AccordionButton>
-      <Divider border="2px" borderColor="#404040" />
+      <Divider borderColor="#636363" />
       <AccordionPanel>
         <Text p="1.5rem 2.5rem 0 2.5rem" fontSize="1.2rem">
           {text}
