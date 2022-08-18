@@ -1,27 +1,31 @@
 import { Button, Link } from "@chakra-ui/react";
 import client from "@components/cms/cms-data";
+import { useGetFiles } from "@components/cms/useGetFiles";
 import { useEffect, useState } from "react";
 
 const ResumeButton: React.FC = () => {
-  const [file, setFile] = useState();
+  const { files } = useGetFiles();
+  const [fileLink, setFileLink] = useState("null");
 
   useEffect(() => {
-    const updateModal = async () => {
-      const data = await client.fetch(`*[_type=="fileData"]`);
-      setFile(data.filter((file: any) => file.title == "resume"));
+    const getResume = async () => {
+      const resume = await client.fetch(`*[_type == 'fileData'] {
+        title,
+        "link": file.asset->url
+      }`);
+      console.log(resume[0].link);
+
+      setFileLink(resume[0].link);
     };
 
-    updateModal();
-  }, []);
-
-  console.log(file);
+    getResume();
+  }, [files]);
 
   return (
     <Button
       as={Link}
-      href="/Santiago_Vira_Resume.pdf"
-      background="rgba(255, 255, 255, 0.08) !important"
-      download="Santiago_Vira_Resume">
+      href={`${fileLink}?dl=Santiago_Vira_Resume`}
+      background="rgba(255, 255, 255, 0.08) !important">
       Download my resume
     </Button>
   );

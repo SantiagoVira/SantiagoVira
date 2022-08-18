@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import client from "./cms-data";
 
 export const useGetFiles = () => {
-  const [files, setFiles] = useState([]);
+  const [files, setFiles] = useState<any[]>([]);
 
   useEffect(() => {
     const updateModal = async () => {
