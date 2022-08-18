@@ -14,21 +14,16 @@ const Layout: React.FC<React.PropsWithChildren<LayoutProps>> = ({
   ...rest
 }) => {
   return (
-    <Flex
-      maxW="100vw"
-      w="100vw"
-      minH="100vh"
-      flexDirection="column"
-      p="1rem"
-      pt={0}
-      {...rest}>
+    <Flex maxW="100vw" w="100vw" minH="100vh" flexDirection="column">
       <Navbar
         selectedTab={
           pageIndex !== undefined ? navigationTabs[pageIndex] : undefined
         }
       />
       <Title page={pageIndex ? navigationTabs[pageIndex].name : ""} />
-      {children}
+      <Flex w="100%" h="100%" p="1rem" flexDirection="column" {...rest}>
+        {children}
+      </Flex>
     </Flex>
   );
 };

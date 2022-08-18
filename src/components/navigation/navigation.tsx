@@ -15,6 +15,7 @@ import {
   ImageProps,
   Button,
 } from "@chakra-ui/react";
+import ResumeButton from "@components/experience/resume-button";
 import Logo from "@components/logo";
 import { Cross } from "hamburger-react";
 import NextLink from "next/link";
@@ -58,9 +59,7 @@ export const Navigation: React.FC<INavigationProps> = ({ selectedTab }) => {
         ))}
       </Flex>
       <Flex flex={1} justifyContent="flex-end">
-        <Button as={Link} href="/Santiago_Vira_Resume.pdf" download>
-          Download my resume
-        </Button>
+        <ResumeButton />
       </Flex>
     </Flex>
   );
@@ -81,7 +80,7 @@ export const MobileNavigation: React.FC<INavigationProps> = ({
         bgColor={controls.isOpen ? "bg.950" : undefined}
         justifyContent="space-between"
         alignItems="center">
-        <LogoLink />
+        <LogoLink highlight={selectedTab === undefined} />
         <Cross onToggle={controls.onToggle} />
       </Flex>
       <Collapse in={controls.isOpen}>
@@ -95,6 +94,10 @@ export const MobileNavigation: React.FC<INavigationProps> = ({
                 passQuery={false}
               />
             ))}
+            <Divider />
+            <Link href="/Santiago_Vira_Resume.pdf" download>
+              Download my resume
+            </Link>
           </Flex>
         </Box>
       </Collapse>
