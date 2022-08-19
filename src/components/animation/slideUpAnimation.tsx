@@ -2,7 +2,7 @@ import { Box, Text } from "@chakra-ui/react";
 import { motion, Variants } from "framer-motion";
 import React from "react";
 
-const SlideUpAnimation: React.FC<{ text: { text: string }[] }> = ({ text }) => {
+const SlideUpAnimation: React.FC<{ text: string[] }> = ({ text }) => {
   const containerVariants: Variants = {
     visible: {
       transition: {
@@ -29,7 +29,7 @@ const SlideUpAnimation: React.FC<{ text: { text: string }[] }> = ({ text }) => {
           <motion.span
             style={{ display: "inline-block" }}
             variants={lineVariants}>
-            {item.text.split(" ").map((word) => word + " ")}
+            {item.split(" ").map((word) => word + " ")}
           </motion.span>
         </Text>
       ))}
