@@ -7,6 +7,13 @@ const client = createClient({
   useCdn: false,
 });
 
+export interface experienceSectionType {
+  title: string;
+  position: string;
+  time: string;
+  body: any[];
+}
+
 // export interface infoType {
 //   _createdAt: string;
 //   _id: string;
