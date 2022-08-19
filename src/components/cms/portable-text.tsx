@@ -13,8 +13,14 @@ const PortableTextLayout: React.FC<{
     <PortableText
       value={text}
       components={{
-        list: ({ children }) => <UnorderedList>{children}</UnorderedList>,
-        listItem: ({ children }) => <ListItem ml="1rem">{children}</ListItem>,
+        list: ({ index, children }) => (
+          <UnorderedList styleType={index ? "circle" : "disc"}>
+            {children}
+          </UnorderedList>
+        ),
+        listItem: ({ index, children }) => (
+          <ListItem ml="1rem">{children}</ListItem>
+        ),
         marks: {
           code: ({ children }) => {
             return (

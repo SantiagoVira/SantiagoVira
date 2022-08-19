@@ -21,7 +21,8 @@ const Projects: NextPage<{ projectData: projectDataType[] }> = ({
 };
 
 export async function getStaticProps() {
-  const projectData = await client.fetch(`*[_type == 'project'] {
+  const projectData =
+    await client.fetch(`*[_type == 'project'] | order(index asc) {
     title,
     "slug": slug.current,
     link,

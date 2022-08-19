@@ -19,7 +19,8 @@ const Experience: NextPage<{ experienceData: experienceSectionType[] }> = ({
 };
 
 export async function getStaticProps() {
-  const experienceData = await client.fetch(`*[_type == 'experienceSection']{
+  const experienceData =
+    await client.fetch(`*[_type == 'experienceSection'] | order(index asc) {
     title,
     position,
     time,
