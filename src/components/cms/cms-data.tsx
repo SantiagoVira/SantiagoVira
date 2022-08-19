@@ -14,6 +14,14 @@ export interface experienceSectionType {
   body: any[];
 }
 
+export interface projectDataType {
+  title: string;
+  slug: string;
+  link: string;
+  image: string;
+  body: any[];
+}
+
 // export interface infoType {
 //   _createdAt: string;
 //   _id: string;
