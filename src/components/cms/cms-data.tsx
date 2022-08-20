@@ -18,6 +18,7 @@ export interface projectDataType {
   title: string;
   slug: string;
   link: string;
+  codeLink: string;
   image: string;
   body: any[];
 }

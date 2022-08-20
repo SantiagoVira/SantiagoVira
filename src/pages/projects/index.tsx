@@ -9,8 +9,6 @@ import type { NextPage } from "next";
 const Projects: NextPage<{ projectData: projectDataType[] }> = ({
   projectData,
 }) => {
-  console.log(projectData);
-
   return (
     <Layout pageIndex={0}>
       <SimpleGrid columns={[1, 2, 3]} gap="1rem">
@@ -28,6 +26,7 @@ export async function getStaticProps() {
     title,
     "slug": slug.current,
     link,
+    codeLink,
     "image": image.asset->url,
     body
   }`);
