@@ -9,8 +9,11 @@ const Project: React.FC<projectDataType> = ({
   link,
   codeLink,
   body,
+  langs,
   slug,
 }) => {
+  const langString = langs?.map((lang) => lang.name).join(" ∙ ");
+
   return (
     <Flex
       border="1px solid"
@@ -45,6 +48,9 @@ const Project: React.FC<projectDataType> = ({
           {title}
         </Text>
       )}
+      <Text fontWeight={600} color="extras.smallText">
+        {langString}
+      </Text>
       <PortableTextLayout text={body} />
       {codeLink ? (
         <NextLink href={codeLink} target="_blank" passHref>

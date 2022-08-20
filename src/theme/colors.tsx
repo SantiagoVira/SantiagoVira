@@ -26,11 +26,7 @@ export const colors = {
     800: "#001a4c",
     900: "#00091e",
   },
-  landing: {
-    bg: "#060606",
-    bg2: "#0C0C0C",
-    cardBg: "#131313",
+  extras: {
     smallText: "#C2CBCC",
-    cursor: "#7d0bda",
   },
 };

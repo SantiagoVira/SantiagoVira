@@ -9,6 +9,7 @@ import type { NextPage } from "next";
 const Projects: NextPage<{ projectData: projectDataType[] }> = ({
   projectData,
 }) => {
+  console.log(projectData[0].langs);
   return (
     <Layout pageIndex={0}>
       <SimpleGrid columns={[1, 2, 3]} gap="1rem">
@@ -28,8 +29,8 @@ export async function getStaticProps() {
     link,
     codeLink,
     "image": image.asset->url,
-    body
-  }`);
+    "langs": langs[]->{ name },
+    body}`);
 
   return {
     props: {

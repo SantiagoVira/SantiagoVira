@@ -20,6 +20,7 @@ export interface projectDataType {
   link: string;
   codeLink: string;
   image: string;
+  langs: { name: string }[];
   body: any[];
 }
 
