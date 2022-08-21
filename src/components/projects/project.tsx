@@ -38,9 +38,10 @@ const Project: React.FC<projectDataType> = ({
             w="80%"
             style={{ aspectRatio: "1/1" }}>
             {link ? (
-              <NextLink href={link} target="_blank" passHref>
+              <NextLink href={link} passHref>
                 <Link
                   display="flex"
+                  target="_blank"
                   alignItems="center"
                   justifyContent="center"
                   gap="0.5rem"
@@ -69,8 +70,13 @@ const Project: React.FC<projectDataType> = ({
         </Flex>
 
         {link ? (
-          <NextLink href={link} target="_blank" passHref>
-            <Link display="flex" alignItems="center" gap="0.5rem" color="white">
+          <NextLink href={link} passHref>
+            <Link
+              display="flex"
+              target="_blank"
+              alignItems="center"
+              gap="0.5rem"
+              color="white">
               <Text fontWeight="bold" fontSize="1.7rem">
                 {title}
               </Text>
@@ -88,13 +94,15 @@ const Project: React.FC<projectDataType> = ({
         <PortableTextLayout text={body} />
       </Flex>
       {codeLink ? (
-        <NextLink href={codeLink} target="_blank" passHref style={{ flex: 1 }}>
-          <Button mt="1.5rem" p="1rem" as={Link}>
+        <NextLink href={codeLink} passHref style={{ flex: 1 }}>
+          <Button mt="1.5rem" p="1rem" as={Link} target="_blank">
             View Source Code
           </Button>
         </NextLink>
       ) : (
-        <></>
+        <Button mt="1.5rem" p="1rem" disabled>
+          Code Unvailable
+        </Button>
       )}
     </Flex>
   );
