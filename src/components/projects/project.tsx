@@ -1,4 +1,9 @@
 import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
   Box,
   Button,
   Divider,
@@ -87,11 +92,21 @@ const Project: React.FC<projectDataType> = ({
             {title}
           </Text>
         )}
-        <Text fontWeight={600} color="extras.smallText">
-          {langString}
-        </Text>
-        <Divider mt="0.5rem" mb="0.75rem" />
-        <PortableTextLayout text={body} />
+
+        <Accordion allowMultiple>
+          <AccordionItem border={0}>
+            <AccordionButton justifyContent="space-between" p={0}>
+              <Text fontWeight={600} color="extras.smallText">
+                {langString}
+              </Text>
+              <AccordionIcon boxSize="1.8rem" />
+            </AccordionButton>
+            <Divider mt="0.5rem" mb="0.75rem" borderColor="#636363" />
+            <AccordionPanel p="1rem 0.5rem">
+              <PortableTextLayout text={body} />
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
       </Flex>
       {codeLink ? (
         <NextLink href={codeLink} passHref style={{ flex: 1 }}>
