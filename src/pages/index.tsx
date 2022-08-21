@@ -14,7 +14,6 @@ const Home: NextPage<{ descriptionText: any[] }> = ({ descriptionText }) => {
       text: "Animating responsive text!",
     },
   ];
-  console.log(descriptionText);
 
   return (
     <Layout>
