@@ -22,7 +22,7 @@ const ResumeButton: React.FC = () => {
     <Button
       as={Link}
       href={`${fileLink}?dl=Santiago_Vira_Resume.pdf`}
-      background="rgba(255, 255, 255, 0.08) !important">
+      bg="#ffffff14">
       Download my resume
     </Button>
   );
