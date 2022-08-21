@@ -12,7 +12,7 @@ const Title: React.FC<{ page?: string }> = ({ page = "" }) => {
       <meta content="/cover.png" property="og:image" />
       <meta
         property="og:description"
-        content="Rising highschool junior and frontend designer with a broken sleep schedule and a computer."
+        content="Rising high school junior and frontend designer with a broken sleep schedule and a computer."
       />
       <meta name="theme-color" content="#114CAB" />
     </Head>

@@ -23,9 +23,13 @@ const SlideUpAnimation: React.FC<{ text: string[] }> = ({ text }) => {
   };
 
   return (
-    <motion.div initial="hidden" animate="visible" variants={containerVariants}>
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+      style={{ width: "80%" }}>
       {text.map((item, index) => (
-        <Text overflow="hidden" whiteSpace="nowrap" key={index}>
+        <Text overflow="hidden" key={index} fontSize="1.3rem">
           <motion.span
             style={{ display: "inline-block" }}
             variants={lineVariants}>
