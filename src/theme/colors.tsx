@@ -28,5 +28,6 @@ export const colors = {
   },
   extras: {
     smallText: "#C2CBCC",
+    buttonColor: "#ffffff14",
   },
 };

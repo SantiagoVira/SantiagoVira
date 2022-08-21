@@ -110,12 +110,17 @@ const Project: React.FC<projectDataType> = ({
       </Flex>
       {codeLink ? (
         <NextLink href={codeLink} passHref style={{ flex: 1 }}>
-          <Button mt="1.5rem" p="1rem" as={Link} target="_blank">
+          <Button
+            mt="1.5rem"
+            p="1rem"
+            as={Link}
+            target="_blank"
+            background="extras.buttonColor">
             View Source Code
           </Button>
         </NextLink>
       ) : (
-        <Button mt="1.5rem" p="1rem" disabled>
+        <Button mt="1.5rem" p="1rem" bg="extras.buttonColor" disabled>
           Code Unvailable
         </Button>
       )}
