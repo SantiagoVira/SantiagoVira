@@ -21,7 +21,7 @@ const Layout: React.FC<React.PropsWithChildren<LayoutProps>> = ({
         }
       />
       <Title page={pageIndex ? navigationTabs[pageIndex].name : ""} />
-      <Flex w="100%" h="100%" p="1rem" flexDirection="column" {...rest}>
+      <Flex w="100%" flex={1} p="1rem" flexDirection="column" {...rest}>
         {children}
       </Flex>
     </Flex>
