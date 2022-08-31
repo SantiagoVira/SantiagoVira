@@ -1,4 +1,4 @@
-import { SimpleGrid, Heading } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 import client, { projectDataType } from "@components/cms/cms-data";
 import Layout from "@components/layout";
 import Project from "@components/projects/project";

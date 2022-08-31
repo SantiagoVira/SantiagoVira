@@ -1,5 +1,4 @@
 import { Flex, FlexProps } from "@chakra-ui/react";
-import { useEffect } from "react";
 import Navbar from "./navigation/navbar";
 import { navigationTabs } from "./navigation/tabs";
 import Title from "./title";

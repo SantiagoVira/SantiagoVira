@@ -1,19 +1,10 @@
 import {
-  Avatar,
   Box,
   Collapse,
   Divider,
   Flex,
   Link,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Text,
   useDisclosure,
-  Image,
-  ImageProps,
-  Button,
 } from "@chakra-ui/react";
 import ResumeButton from "@components/experience/resume-button";
 import Logo from "@components/logo";

@@ -1,4 +1,4 @@
-import { Box, Divider, Flex, Heading, Text } from "@chakra-ui/react";
+import { Divider, Flex, Heading, Text } from "@chakra-ui/react";
 import Layout from "@components/layout";
 import Title from "@components/title";
 import type { NextPage } from "next";

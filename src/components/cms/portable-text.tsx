@@ -1,4 +1,3 @@
-import type { experienceSectionType } from "./cms-data";
 import { PortableText } from "@portabletext/react";
 import { Code, Link, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 import NextLink from "next/link";
