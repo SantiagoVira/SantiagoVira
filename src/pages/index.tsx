@@ -25,11 +25,11 @@ const Home: NextPage<{ descriptionText: any[] }> = ({ descriptionText }) => {
         <SlideUpAnimation text={descriptionText} />
       </Flex>
 
-      <Flex flexDirection="column" w="fit-content">
-        <Text fontSize="1.6rem" display="inline-block">
-          Contact Me
+      <Flex flexDirection="column" w="fit-content" mt="1.5rem">
+        <Text fontSize="2rem" fontWeight="500" display="inline-block">
+          Say Hi!
         </Text>
-        <Divider />
+        <Divider my="0.5rem" />
         <Flex py="0.5rem" pr="3rem" gap="0.5rem">
           <ContactLink link="mailto:santiagovira06@gmail.com" Icon={IoMdMail} />
           <ContactLink

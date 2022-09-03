@@ -9,7 +9,7 @@ const ContactLink: React.FC<{ link: string; Icon: IconType }> = ({
   return (
     <NextLink href={link} passHref>
       <Link target="_blank">
-        <Icon size="2rem" />
+        <Icon size="2.5rem" />
       </Link>
     </NextLink>
   );

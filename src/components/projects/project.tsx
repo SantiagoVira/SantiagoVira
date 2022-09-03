@@ -108,6 +108,22 @@ const Project: React.FC<projectDataType> = ({
           </AccordionItem>
         </Accordion>
       </Flex>
+      {link ? (
+        <NextLink href={link} passHref style={{ flex: 1 }}>
+          <Button
+            mt="1.5rem"
+            p="1rem"
+            as={Link}
+            target="_blank"
+            background="extras.buttonColor">
+            View Project
+          </Button>
+        </NextLink>
+      ) : (
+        <Button mt="1.5rem" p="1rem" bg="extras.buttonColor" disabled>
+          Project Not Hosted
+        </Button>
+      )}
       {codeLink ? (
         <NextLink href={codeLink} passHref style={{ flex: 1 }}>
           <Button
