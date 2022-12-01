@@ -19,7 +19,9 @@ const Layout: React.FC<React.PropsWithChildren<LayoutProps>> = ({
           pageIndex !== undefined ? navigationTabs[pageIndex] : undefined
         }
       />
-      <Title page={pageIndex ? navigationTabs[pageIndex].name : ""} />
+      <Title
+        page={pageIndex !== undefined ? navigationTabs[pageIndex].name : ""}
+      />
       <Flex w="100%" flex={1} p="1rem" flexDirection="column" {...rest}>
         {children}
       </Flex>
