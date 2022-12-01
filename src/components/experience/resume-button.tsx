@@ -1,5 +1,5 @@
-import { Button, Link } from "@chakra-ui/react";
 import client from "@components/cms/cms-data";
+import LinkButton from "@components/link-button";
 import { useEffect, useState } from "react";
 
 const ResumeButton: React.FC = () => {
@@ -19,12 +19,9 @@ const ResumeButton: React.FC = () => {
   }, []);
 
   return (
-    <Button
-      as={Link}
-      href={`${fileLink}?dl=Santiago_Vira_Resume.pdf`}
-      bg="extras.buttonColor">
+    <LinkButton href={`${fileLink}?dl=Santiago_Vira_Resume.pdf`}>
       Download my resume
-    </Button>
+    </LinkButton>
   );
 };
 

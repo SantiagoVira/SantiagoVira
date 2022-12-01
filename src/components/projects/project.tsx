@@ -4,17 +4,16 @@ import {
   AccordionIcon,
   AccordionItem,
   AccordionPanel,
-  Box,
-  Button,
   Divider,
   Flex,
-  Heading,
   Image,
   Link,
   Text,
 } from "@chakra-ui/react";
+import Button from "@components/button";
 import { projectDataType } from "@components/cms/cms-data";
 import PortableTextLayout from "@components/cms/portable-text";
+import LinkButton from "@components/link-button";
 import NextLink from "next/link";
 
 const Project: React.FC<projectDataType> = ({
@@ -110,33 +109,23 @@ const Project: React.FC<projectDataType> = ({
       </Flex>
       {link ? (
         <NextLink href={link} passHref style={{ flex: 1 }}>
-          <Button
-            mt="1.5rem"
-            p="1rem"
-            as={Link}
-            target="_blank"
-            background="extras.buttonColor">
+          <LinkButton mt="1.5rem" p="1rem" target="_blank">
             View Project
-          </Button>
+          </LinkButton>
         </NextLink>
       ) : (
-        <Button mt="1.5rem" p="1rem" bg="extras.buttonColor" disabled>
+        <Button mt="1.5rem" p="1rem" disabled>
           Project Not Hosted
         </Button>
       )}
       {codeLink ? (
         <NextLink href={codeLink} passHref style={{ flex: 1 }}>
-          <Button
-            mt="1.5rem"
-            p="1rem"
-            as={Link}
-            target="_blank"
-            background="extras.buttonColor">
+          <LinkButton mt="1.5rem" p="1rem" target="_blank">
             View Source Code
-          </Button>
+          </LinkButton>
         </NextLink>
       ) : (
-        <Button mt="1.5rem" p="1rem" bg="extras.buttonColor" disabled>
+        <Button mt="1.5rem" p="1rem" disabled>
           Code Unvailable
         </Button>
       )}
