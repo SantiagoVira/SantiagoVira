@@ -13,7 +13,7 @@ const Layout: React.FC<React.PropsWithChildren<LayoutProps>> = ({
   ...rest
 }) => {
   return (
-    <Flex maxW="100vw" w="100vw" minH="100vh" flexDirection="column">
+    <Flex maxW="100vw" minH="100vh" flexDirection="column">
       <Navbar
         selectedTab={
           pageIndex !== undefined ? navigationTabs[pageIndex] : undefined
