@@ -2,7 +2,7 @@
 
 My name is Santiago Vira, I go by he/they pronouns, and I code things good!! I specialize in frontend but I can do backend work in a pinch!
 
- [![Santiago's GitHub stats](https://github-readme-stats.vercel.app/api?username=SantiagoVira&count_private=true)](https://github.com/anuraghazra/github-readme-stats)
+ [![Santiago's GitHub stats](https://github-readme-stats.vercel.app/api?username=SantiagoVira&show_icons=true&theme=material-palenight)](https://github.com/anuraghazra/github-readme-stats)
 
 
 <!--
