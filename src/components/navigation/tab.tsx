@@ -23,14 +23,14 @@ export const Tab: React.FC<ITabProps> = ({
         hash: tab.hash,
         query: passQuery ? query : undefined,
       }}
-      passHref>
-      <Link
-        display="flex"
-        alignItems="center"
-        gap="0.5rem"
-        color={selected ? "white" : "whiteAlpha.700"}>
-        <Text fontWeight="medium">{tab.name}</Text>
-      </Link>
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "0.5rem",
+        color: selected ? "white" : "whiteAlpha.700",
+        fontWeight: "medium",
+      }}>
+      {tab.name}
     </NextLink>
   );
 };

@@ -7,10 +7,8 @@ const ContactLink: React.FC<{ link: string; Icon: IconType }> = ({
   Icon,
 }) => {
   return (
-    <NextLink href={link} passHref>
-      <Link target="_blank">
-        <Icon size="2.5rem" />
-      </Link>
+    <NextLink href={link} target="_blank">
+      <Icon size="2.5rem" />
     </NextLink>
   );
 };

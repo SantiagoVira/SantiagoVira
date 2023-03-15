@@ -42,24 +42,25 @@ const Project: React.FC<projectDataType> = ({
             w="80%"
             style={{ aspectRatio: "1/1" }}>
             {link ? (
-              <NextLink href={link} passHref>
-                <Link
-                  display="flex"
-                  target="_blank"
-                  alignItems="center"
-                  justifyContent="center"
-                  gap="0.5rem"
-                  color="white"
-                  w="100%"
-                  h="100%">
-                  <Image
-                    src={image}
-                    alt={`${slug} logo`}
-                    h="100%"
-                    maxW="100%"
-                    maxH="100%"
-                  />
-                </Link>
+              <NextLink
+                href={link}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.5rem",
+                  color: "white",
+                  width: "100%",
+                  height: "100%",
+                }}
+                target="_blank">
+                <Image
+                  src={image}
+                  alt={`${slug} logo`}
+                  h="100%"
+                  maxW="100%"
+                  maxH="100%"
+                />
               </NextLink>
             ) : (
               <Image
@@ -74,17 +75,18 @@ const Project: React.FC<projectDataType> = ({
         </Flex>
 
         {link ? (
-          <NextLink href={link} passHref>
-            <Link
-              display="flex"
-              target="_blank"
-              alignItems="center"
-              gap="0.5rem"
-              color="white">
-              <Text fontWeight="bold" fontSize="1.7rem">
-                {title}
-              </Text>
-            </Link>
+          <NextLink
+            href={link}
+            target="_blank"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              color: "white",
+              fontWeight: "bold",
+              fontSize: "1.7rem",
+            }}>
+            {title}
           </NextLink>
         ) : (
           <Text fontWeight="bold" fontSize="1.7rem">

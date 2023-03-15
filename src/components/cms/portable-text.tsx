@@ -30,10 +30,11 @@ const PortableTextLayout: React.FC<{
           },
           link: ({ text, value }) => {
             return (
-              <NextLink href={value.href} passHref>
-                <Link textDecoration="underline" fontSize="inherit">
-                  {text}
-                </Link>
+              <NextLink
+                href={value.href}
+                passHref
+                style={{ textDecoration: "underline", fontSize: "inherit" }}>
+                {text}
               </NextLink>
             );
           },

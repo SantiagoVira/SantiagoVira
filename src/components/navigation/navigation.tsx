@@ -20,9 +20,7 @@ export interface INavigationProps {
 
 export const LogoLink: React.FC<{ highlight?: boolean }> = ({ highlight }) => (
   <NextLink href="/" passHref>
-    <Link>
-      <Logo color={highlight ? "white" : "#ffffffa1"} />
-    </Link>
+    <Logo color={highlight ? "white" : "#ffffffa1"} />
   </NextLink>
 );
 
@@ -85,11 +83,11 @@ export const MobileNavigation: React.FC<INavigationProps> = ({
               />
             ))}
             <Divider />
-            <Link
+            <NextLink
               href="/Santiago_Vira_Resume.pdf"
               download="Santiago_Vira_Resume">
               Download my resume
-            </Link>
+            </NextLink>
           </Flex>
         </Box>
       </Collapse>
