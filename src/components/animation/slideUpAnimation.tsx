@@ -27,9 +27,14 @@ const SlideUpAnimation: React.FC<{ text: string[] }> = ({ text }) => {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      style={{ width: "80%" }}>
+      style={{ width: "100%" }}>
       {text.map((item, index) => (
-        <Text overflow="hidden" key={index} fontSize="1.3rem">
+        <Text
+          overflow="hidden"
+          key={index}
+          fontSize="1.3rem"
+          w={{ base: "95%", md: "80%" }}
+          textAlign={{ base: "center", md: "left" }}>
           <motion.span
             style={{ display: "inline-block" }}
             variants={lineVariants}>

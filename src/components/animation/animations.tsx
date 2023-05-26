@@ -35,13 +35,13 @@ export const spinUpVariants: Variants = {
 };
 
 export const Animation: React.FC<
-  React.PropsWithChildren<{ variants: Variants }>
-> = ({ variants, children }) => {
+  React.PropsWithChildren<{ variants: Variants; wfull?: boolean }>
+> = ({ variants, children, wfull = false }) => {
   return (
     <motion.div
       initial="offscreen"
       whileInView="onscreen"
-      style={{ width: "fit-content" }}
+      style={{ width: wfull ? "100%" : "fit-content" }}
       viewport={{ once: true, amount: 0.1 }}>
       <motion.div variants={variants} style={{ width: "fit-content" }}>
         {children}

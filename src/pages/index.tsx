@@ -15,10 +15,15 @@ import {
 
 const Home: NextPage<{ descriptionText: any[] }> = ({ descriptionText }) => {
   return (
-    <Layout p="3rem" justifyContent="space-between">
-      <Flex flexDirection="column" w="100%">
-        <Animation variants={spinUpVariants}>
-          <Heading display="inline-block" fontSize="3.5rem" mb="2rem">
+    <Layout p="3rem" pt="1.5rem" justifyContent="space-between">
+      <Flex flexDirection="column" w="100%" alignItems="center">
+        <Animation variants={spinUpVariants} wfull>
+          <Heading
+            display="inline-block"
+            fontSize="3.5rem"
+            mb="2rem"
+            width="100%"
+            textAlign={{ base: "center", md: "left" }}>
             Hi, I&apos;m Santiago.
           </Heading>
         </Animation>
