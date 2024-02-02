@@ -6,6 +6,7 @@ export default function Home() {
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <h1 className="font-dunk text-8xl text-accent">SAN</h1>
         <h1 className="font-dunk text-8xl text-accent ">TIAGO</h1>
+        <div className="h-[300vh]"></div>
       </div>
     </main>
   );
