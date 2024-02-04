@@ -12,7 +12,7 @@ const config: Config = {
         dunk: ["BNDunk", "sans-serif"],
       },
       colors: {
-        accent: "#f7f0e7",
+        accent: "#fff2e0",
         background: "#1e1f1e",
       },
     },

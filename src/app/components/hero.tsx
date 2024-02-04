@@ -6,7 +6,7 @@ const tidbits = ["✧", "⏺", "☺︎", "✸"];
 
 const Hero: React.FC = () => {
   return (
-    <div className="flex flex-col w-full max-w-[58rem] origin-top justify-center h-full scale-y-150">
+    <div className="flex flex-col w-full h-[105vh] max-w-[58rem] origin-top justify-center items-center scale-y-150">
       <h1 className="font-dunk text-9xl mr-auto text-accent">
         SAN <Tidbit />
       </h1>
