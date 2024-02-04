@@ -9,6 +9,7 @@ export default function Home() {
     <>
       <Hero />
       <Section1 />
+      <div className="h-[300vh]"></div>
     </>
   );
 }
