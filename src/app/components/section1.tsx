@@ -7,13 +7,40 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Bread1 from "@/images/bread1.jpeg";
 import Bread2 from "@/images/bread2.jpeg";
 import Bread3 from "@/images/bread3.jpeg";
 
 const Section1: React.FC = () => {
   const container = useRef(null);
+
+  const path = useRef<SVGPathElement>(null);
+  let progress = 0;
+  let x = 0.5;
+
+  const setPath = useCallback(
+    (value: number) => {
+      const width = window.innerWidth * 0.7;
+
+      if (path.current)
+        path.current.setAttributeNS(
+          null,
+          "d",
+          `M 0 50 Q ${width * x} ${50 + value} ${width} 50`
+        );
+    },
+    [x]
+  );
+
+  useEffect(() => {
+    setPath(progress);
+
+    window.addEventListener("resize", () => {
+      setPath(progress);
+    });
+  }, [progress, setPath]);
+
   const images = [Bread1, Bread2, Bread3];
   const [imageIdx, setImageIdx] = useState(0);
   const { scrollYProgress } = useScroll({
@@ -45,6 +72,30 @@ const Section1: React.FC = () => {
           />
         </div>
       </div>
+      <div className="h-[1px] relative w-full mb-5">
+        <span className="h-[40px] w-full flex relative -top-5 z-10"></span>
+
+        <svg
+          height="100"
+          className="absolute h-[100px] w-full"
+          xmlns="http://www.w3.org/2000/svg">
+          <path ref={path} className="stroke-1 stroke-accent"></path>
+        </svg>
+      </div>
+      {/* <svg height="400" width="450" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M 100 250 Q 250 180 400 250"
+          className="fill-none stroke-green-500 stroke-[3]"
+        />
+      </svg>
+      <svg height="400" width="450" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M 100 350 q 150 -300 300 0"
+          stroke="blue"
+          stroke-width="4"
+          fill="none"
+        />
+      </svg> */}
     </div>
   );
 };

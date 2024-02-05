@@ -1,8 +1,11 @@
-import dynamic from "next/dynamic";
 import Section1 from "./components/section1";
-const Hero = dynamic(() => import("@/components/hero"), {
-  ssr: false,
-});
+
+// import dynamic from "next/dynamic";
+// const Hero = dynamic(() => import("@/components/hero"), {
+//   ssr: false,
+// });
+
+import Hero from "./components/hero";
 
 export default function Home() {
   return (
