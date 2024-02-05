@@ -24,10 +24,6 @@ const QuadraticBottom: React.FC = () => {
   useEffect(() => {
     setPath(0.5, 0.5);
 
-    window.addEventListener("resize", () => {
-      setPath(0.5, 0.5);
-    });
-
     window.addEventListener("mousemove", (e) => {
       const { clientX, clientY } = e;
       setPath(clientX / window.innerWidth, clientY / window.innerHeight);

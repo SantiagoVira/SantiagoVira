@@ -19,7 +19,7 @@ import Bread2 from "@/images/bread2.jpeg";
 import Bread3 from "@/images/bread3.jpeg";
 import QuadraticBottom from "./quadratic-bottom";
 
-const Section1: React.FC = () => {
+const About: React.FC = () => {
   const container = useRef(null);
 
   const images = [Bread1, Bread2, Bread3];
@@ -58,32 +58,4 @@ const Section1: React.FC = () => {
   );
 };
 
-export default Section1;
-// "use client"
-
-// import Image from 'next/image';
-// import { useScroll, useTransform, motion} from 'framer-motion';
-// import { useRef } from 'react';
-
-// export default function Index() {
-
-//     const container = useRef(null);
-//     const { scrollYProgress } = useScroll({
-//         target: container,
-//         offset: ['start start', 'end end']
-//     })
-
-//     const scale = useTransform(scrollYProgress, [0, 1], [1, 4]);
-
-//     return (
-//         <div ref={container} className={styles.container}>
-//             <div className={styles.sticky}>
-//                 <motion.div style={{scale}} className={styles.el}>
-//                     <div className={styles.imageContainer}>
-//                         <div className="w-8 h-8 bg-red-500"></div>
-//                     </div>
-//                 </motion.div>
-//             </div>
-//         </div>
-//     )
-// }
+export default About;
