@@ -30,6 +30,10 @@ const About: React.FC = () => {
     offset: ["start start", "end end"],
   });
   const scaled = useTransform(scrollYProgress, [0, 1], [0, 2.99999]);
+  const scrollBar = useTransform(
+    scaled,
+    (latest) => `${(scaled.get() % 1) * 100}%`
+  );
 
   useMotionValueEvent(scaled, "change", (latest) => {
     setImageIdx(Math.floor(latest));
@@ -46,11 +50,19 @@ const About: React.FC = () => {
             <h2 className="font-dunk text-6xl text-background">ABOUT</h2>
           </div>
 
-          <Image
-            className="w-[30vw] h-[80vh] object-cover"
-            src={images[imageIdx]}
-            alt="image"
-          />
+          <div className="flex gap-4">
+            <Image
+              className="w-[30vw] h-[80vh] object-cover"
+              src={images[imageIdx]}
+              alt="image"
+            />{" "}
+            <div className="bg-background/20 h-[80vh] flex flex-col justify-start rounded-full w-2 overflow-hidden">
+              <motion.div
+                className="w-full bg-background rounded-full"
+                style={{ height: scrollBar }}
+              />
+            </div>
+          </div>
         </div>
       </div>
       <QuadraticBottom />
