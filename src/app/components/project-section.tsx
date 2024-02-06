@@ -4,25 +4,29 @@ import { useState } from "react";
 import Project from "./project";
 
 const Projects: React.FC = () => {
-  const projects = ["a", "b", "c"];
+  const projects = [
+    [2, 2],
+    [1, 2],
+    [1, 1],
+    [1, 1],
+    [1, 1],
+  ];
   const [hoverIdx, setHoverIdx] = useState(-1);
   return (
     <div className={`flex flex-col relative w-full justify-start items-center`}>
       <h2 className="font-dunk text-6xl text-accent mb-5">PROJECTS</h2>
       <div
-        className="flex flex-col w-full h-[105vh] max-w-[50rem] justify-start items-center gap-2"
+        className="grid grid-cols-3 grid-rows-3 w-full h-[45rem] max-w-[60rem] gap-4"
         onMouseLeave={() => setHoverIdx(-1)}>
-        <hr className="w-full border-white" />
         {projects.map((project, i) => (
-          <>
-            <Project
-              faded={hoverIdx !== -1 && hoverIdx !== i}
-              setHoverIdx={setHoverIdx}
-              idx={i}
-              key={i}
-            />
-            {/* <hr className="w-full border-white" /> */}
-          </>
+          <Project
+            setHoverIdx={setHoverIdx}
+            cols={project[0]}
+            rows={project[1]}
+            idx={i}
+            faded={hoverIdx !== -1 && hoverIdx !== i}
+            key={i}
+          />
         ))}
       </div>
     </div>
