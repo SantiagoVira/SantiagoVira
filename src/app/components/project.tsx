@@ -7,18 +7,19 @@ const Project: React.FC<{
 }> = ({ setHoverIdx, idx, faded = false }) => {
   "row-span-3";
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className={`p-2 flex items-start justify-center gap-4 hover:bg-accent/10 rounded-lg border-accent border w-full h-full transition-all duration-[400ms] ${
+    <div
+      className={`p-2 flex items-start justify-between gap-24 rounded-lg w-full h-full transition-all duration-[400ms] ${
         faded && "opacity-40"
       } `}
       onMouseEnter={() => setHoverIdx(idx)}>
+      <p className="text-accent/60 font-bold">2023</p>
+      <div className="flex items-start justify-start flex-col flex-1 gap-1">
+        <p className="text-accent text-xs">FULLSTACK</p>
+        <h3 className="font-bold text-2xl text-accent">Hello, world!</h3>
+        <p className="text-accent">TEST TEST TEST TEST</p>
+      </div>
       <p className="text-9xl font-black text-accent">☃︎</p>
-      <h3 className="font-bold text-2xl text-accent">Hello, world!</h3>
-      <p className="text-accent">TEST TEST TEST TEST</p>
-    </motion.div>
+    </div>
   );
 };
 

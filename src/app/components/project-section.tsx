@@ -20,10 +20,6 @@ const Projects: React.FC = () => {
             active={tabIdx === i}
             onClick={() => {
               setTabIdx(i);
-
-              setProjects([]);
-              setTimeout(() => setProjects(["B", "B", "C"]), 100);
-              console.log(projects);
             }}
             key={i}>
             {tab}
@@ -38,7 +34,11 @@ const Projects: React.FC = () => {
             faded={hoverIdx !== -1 && hoverIdx !== i}
             key={i}
           />
-          <hr className=" border-accent" />
+          {i < projects.length - 1 ? (
+            <hr className="w-full border-accent/60" />
+          ) : (
+            <></>
+          )}
         </>
       ))}
     </div>
