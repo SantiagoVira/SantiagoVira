@@ -1,6 +1,6 @@
 import About from "./components/about-section";
 import Hero from "./components/hero";
-import Projects from "./components/project-section";
+import Projects from "./components/projects/project-section";
 
 export default function Home() {
   return (
