@@ -17,12 +17,11 @@ export interface experienceSectionType {
 
 export interface projectDataType {
   title: string;
-  slug: string;
   link: string;
   codeLink: string;
-  image: string;
-  langs: { name: string }[];
-  body: any[];
+  description: string;
+  archived: boolean;
+  year: number;
 }
 
 // export interface infoType {

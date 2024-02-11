@@ -2,13 +2,13 @@
 
 import { useMotionValue, motion } from "framer-motion";
 import { Tab } from "../tab";
-import { useState } from "react";
 
 const tabs = ["Top Projects", "Design Work", "Project Archive"];
 
-const Tabs: React.FC = () => {
-  const [tabIdx, setTabIdx] = useState(0);
-
+const Tabs: React.FC<{
+  tabIdx: number;
+  setTabIdx: React.Dispatch<React.SetStateAction<number>>;
+}> = ({ tabIdx, setTabIdx }) => {
   const tabHighlightIdx = useMotionValue(0);
   const spring = {
     type: "spring",
