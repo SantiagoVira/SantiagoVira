@@ -29,13 +29,12 @@ const About: React.FC = () => {
 
     offset: ["start start", "end end"],
   });
-  const scaled = useTransform(scrollYProgress, [0, 1], [0, 2.99999]);
   const scrollBar = useTransform(
-    scaled,
-    (latest) => `${(scaled.get() % 1) * 100}%`
+    scrollYProgress,
+    (latest) => `${(latest % 1) * 100}%`
   );
 
-  useMotionValueEvent(scaled, "change", (latest) => {
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
     setImageIdx(Math.floor(latest));
   });
 
@@ -43,7 +42,7 @@ const About: React.FC = () => {
     <div className="flex flex-col relative w-full justify-start items-center">
       <div className="border-t-[8vh] border-t-transparent border-l-[50vw] border-l-transparent border-r-[50vw] border-accent border-b-[8vh] w-0 h-0" />
       <div
-        className="flex flex-col relative w-full justify-start h-[300vh] items-center"
+        className="flex flex-col relative w-full justify-start h-[150vh] items-center"
         ref={container}>
         <div className="h-screen sticky top-0 w-full flex items-start justify-between p-24 bg-accent">
           <div className="flex flex-col">

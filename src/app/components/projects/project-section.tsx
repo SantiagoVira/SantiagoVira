@@ -13,7 +13,7 @@ const Projects: React.FC = async () => {
       <h2 className="font-dunk text-6xl text-accent mb-5">PROJECTS</h2>
       <Tabs />
 
-      <div className="flex flex-col items-center w-full justify-start group">
+      <div className="flex flex-col -mt-2 items-center w-full justify-start group">
         {projects.map((project, i) => (
           <Fragment key={i}>
             <Project />
@@ -28,26 +28,5 @@ const Projects: React.FC = async () => {
     </div>
   );
 };
-
-// export async function getStaticProps() {
-//   const projectData =
-//     await client.fetch(`*[_type == 'project'] | order(index asc) {
-// 	  title,
-// 	  "slug": slug.current,
-// 	  link,
-// 	  codeLink,
-// 	  "image": image.asset->url,
-// 	  "langs": langs[]->{ name },
-// 	  body}`);
-
-//   console.log(projectData);
-
-//   return {
-//     props: {
-//       projectData,
-//     },
-//     revalidate: 60,
-//   };
-// }
 
 export default Projects;
