@@ -13,6 +13,7 @@ const ProjectList: React.FC<{ projects: projectDataType[] }> = ({
             year={project.year}
             title={project.title}
             description={project.description}
+            category={project.category}
           />
           {i < projects.length - 1 ? (
             <hr className="w-full border-accent/60" />

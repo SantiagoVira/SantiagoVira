@@ -20,6 +20,7 @@ export interface projectDataType {
   link: string;
   codeLink: string;
   description: string;
+  category: string;
   archived: boolean;
   year: number;
 }
