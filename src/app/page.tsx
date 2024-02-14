@@ -1,6 +1,7 @@
 import About from "./components/about-section";
 import Hero from "./components/hero";
 import Projects from "./components/projects/project-section";
+import UnderlineHover from "./components/underline-hover";
 import { projectDataType } from "./utils/client";
 import { QUERIES } from "./utils/queries";
 import { queryCMS } from "./utils/store";
