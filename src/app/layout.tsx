@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-background`}>
+      <body className={`${inter.className} bg-background text-accent`}>
         <SmoothScroll>
           <main className="flex min-h-screen justify-center px-24">
             <div className="flex min-h-screen flex-col items-center justify-between">

@@ -9,12 +9,7 @@ const ProjectList: React.FC<{ projects: projectDataType[] }> = ({
     <div className="flex flex-col -mt-2 items-center w-full justify-start group">
       {projects.map((project, i) => (
         <Fragment key={i}>
-          <Project
-            year={project.year}
-            title={project.title}
-            description={project.description}
-            category={project.category}
-          />
+          <Project {...project} />
           {i < projects.length - 1 ? (
             <hr className="w-full border-accent/60" />
           ) : (
