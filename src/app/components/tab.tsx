@@ -9,7 +9,7 @@ export const Tab: React.FC<
   `}
     onClick={onClick}>
     <p
-      className={`transition-all  pb-1 ${
+      className={`transition-all select-none pb-1 ${
         active ? "text-accent" : "text-accent/30 group-hover:text-accent/65"
       }`}>
       {children}
