@@ -1,12 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
-const tidbits = ["✧", "⏺", "☺︎", "✸", "⏣", "❤︎", "❄︎", "✌︎", "☀︎"];
+import { chooseRandomTidbit, tidbits } from "./tidbit-canvas";
 
 const Hero: React.FC = () => {
   return (
-    <div className="flex flex-col w-full h-[105vh] max-w-[58rem] origin-top justify-center items-center scale-y-150">
+    <div className="flex flex-col w-full h-[105vh] select-none max-w-[58rem] origin-top justify-center items-center scale-y-150">
       <h1 className="font-dunk text-9xl mr-auto text-accent">
         SAN <Tidbit delay={1750} />
       </h1>
@@ -22,15 +21,12 @@ const Hero: React.FC = () => {
 };
 
 const Tidbit: React.FC<{ delay: number }> = ({ delay }) => {
-  const chooseRandom = () =>
-    tidbits[Math.floor(Math.random() * tidbits.length)];
-
-  const [symbol, setSymbol] = useState(chooseRandom());
+  const [symbol, setSymbol] = useState(chooseRandomTidbit());
 
   useEffect(() => {
     //Implementing the setInterval method
     const interval = setInterval(() => {
-      setSymbol(chooseRandom());
+      setSymbol(chooseRandomTidbit());
     }, delay);
 
     //Clearing the interval
