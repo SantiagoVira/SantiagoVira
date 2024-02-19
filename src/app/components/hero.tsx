@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { chooseRandomTidbit, tidbits } from "./tidbit-canvas";
+import { chooseRandomTidbit } from "./tidbit-box";
 
 const Hero: React.FC = () => {
   return (
