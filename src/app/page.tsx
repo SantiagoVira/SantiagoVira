@@ -1,4 +1,5 @@
 import About from "./components/about-section";
+import ContactsSection from "./components/contacts-section";
 import Hero from "./components/hero";
 import Projects from "./components/projects/project-section";
 import { projectDataType } from "./utils/client";
@@ -15,14 +16,12 @@ const Home = async () => {
   const aboutBlurbQuery = await queryCMS(QUERIES.ABOUT_BLURB_QUERY);
   const aboutBlurb = aboutBlurbQuery.data as unknown as { body: any[] };
 
-  console.log(aboutBlurb);
-
   return (
     <>
       <Hero />
       <About text={aboutBlurb.body} />
       <Projects topProjects={topProjects} archivedProjects={archivedProjects} />
-      <div className="h-[300vh]"></div>
+      <ContactsSection />
     </>
   );
 };

@@ -14,6 +14,7 @@ const config: Config = {
       colors: {
         accent: "#fff2e0",
         background: "#1e1f1e",
+        darkBackground: "#1b1c1b",
       },
     },
   },
