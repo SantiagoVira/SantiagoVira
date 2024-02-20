@@ -51,9 +51,9 @@ const About: React.FC<{ text: any[] }> = ({ text }) => {
               src={images[imageIdx]}
               alt="image"
             />{" "}
-            <div className="bg-background/20 h-[80vh] flex flex-col justify-start rounded-full w-2 overflow-hidden">
+            <div className="bg-background/20 h-[80vh] flex flex-col justify-start rounded-full !w-[4px]">
               <motion.div
-                className="w-full bg-background rounded-full"
+                className="!w-[4px] bg-background rounded-full"
                 style={{ height: scrollBar }}
               />
             </div>
