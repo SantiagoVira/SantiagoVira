@@ -11,10 +11,16 @@ const Home = async () => {
   const archivedProjectsQuery = await queryCMS(QUERIES.ARCHIVED_PROJECTS_QUERY);
   const archivedProjects =
     archivedProjectsQuery.data as unknown as projectDataType[];
+
+  const aboutBlurbQuery = await queryCMS(QUERIES.ABOUT_BLURB_QUERY);
+  const aboutBlurb = aboutBlurbQuery.data as unknown as { body: any[] };
+
+  console.log(aboutBlurb);
+
   return (
     <>
       <Hero />
-      <About />
+      <About text={aboutBlurb.body} />
       <Projects topProjects={topProjects} archivedProjects={archivedProjects} />
       <div className="h-[300vh]"></div>
     </>

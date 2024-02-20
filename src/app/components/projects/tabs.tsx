@@ -1,7 +1,7 @@
 "use client";
 
 import { useMotionValue, motion } from "framer-motion";
-import { Tab } from "../tab";
+import { Tab } from "./tab";
 
 const tabs = ["Top Projects", "Design Work", "Project Archive"];
 

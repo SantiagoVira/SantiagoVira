@@ -1,10 +1,11 @@
 "use client";
 
 import useWindowSize from "@/utils/use-window-size";
-import { useMotionValue, useScroll } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useScroll } from "framer-motion";
+import { useRef } from "react";
 
 export const tidbits = ["✧", "⏺", "☺︎", "✸", "⏣", "❤︎", "❄︎", "✌︎", "☀︎"];
+const SPAWN_CHANCE = 0.06;
 
 export const chooseRandomTidbit = () =>
   tidbits[Math.floor(Math.random() * tidbits.length)];
@@ -31,7 +32,7 @@ const TidbitBox: React.FC = () => {
         const x = clientX / innerWidth;
         const y = clientY / innerHeight;
 
-        if (boxRef.current && width && height && Math.random() < 0.04) {
+        if (boxRef.current && width && height && Math.random() < SPAWN_CHANCE) {
           const tidbit = document.createElement("span");
           tidbit.appendChild(document.createTextNode(chooseRandomTidbit()));
 

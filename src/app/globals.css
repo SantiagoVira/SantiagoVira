@@ -39,7 +39,7 @@
 
 .tidbit {
   position: absolute;
-  font-size: 1.6rem;
+  font-size: 2rem;
   animation-fill-mode: forwards;
   animation-duration: 1500ms;
 }

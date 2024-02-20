@@ -7,19 +7,14 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import Image from "next/image";
-import {
-  MouseEventHandler,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useRef, useState } from "react";
 import Bread1 from "@/images/bread1.jpeg";
 import Bread2 from "@/images/bread2.jpeg";
 import Bread3 from "@/images/bread3.jpeg";
 import QuadraticBottom from "./quadratic-bottom";
+import PortableTextLayout from "@/utils/portable-text";
 
-const About: React.FC = () => {
+const About: React.FC<{ text: any[] }> = ({ text }) => {
   const container = useRef(null);
 
   const images = [Bread1, Bread2, Bread3];
@@ -31,7 +26,7 @@ const About: React.FC = () => {
   });
   const scrollBar = useTransform(
     scrollYProgress,
-    (latest) => `${(latest % 1) * 100}%`
+    (latest) => `${latest * 100}%`
   );
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -44,14 +39,15 @@ const About: React.FC = () => {
       <div
         className="flex flex-col relative w-full justify-start h-[150vh] items-center"
         ref={container}>
-        <div className="h-screen sticky top-0 w-full flex items-start justify-between p-24 bg-accent">
-          <div className="flex flex-col">
-            <h2 className="font-dunk text-6xl text-background">ABOUT</h2>
+        <div className="h-screen sticky top-0 w-full flex items-start gap-20 justify-between p-24 bg-accent">
+          <div className="flex flex-col text-background text-xl gap-2">
+            <h2 className="font-dunk text-6xl">ABOUT</h2>
+            <PortableTextLayout text={text} />
           </div>
 
           <div className="flex gap-4">
             <Image
-              className="w-[30vw] h-[80vh] object-cover"
+              className="min-w-[30vw] h-[80vh] object-cover"
               src={images[imageIdx]}
               alt="image"
             />{" "}
