@@ -5,7 +5,7 @@ import { useScroll } from "framer-motion";
 import { useRef } from "react";
 
 export const tidbits = ["✧", "⏺", "☺︎", "✸", "⏣", "❤︎", "❄︎", "✌︎", "☀︎"];
-const SPAWN_CHANCE = 0.06;
+const SPAWN_CHANCE = 0.16;
 
 export const chooseRandomTidbit = () =>
   tidbits[Math.floor(Math.random() * tidbits.length)];

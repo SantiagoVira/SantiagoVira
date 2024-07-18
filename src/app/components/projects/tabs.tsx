@@ -3,7 +3,28 @@
 import { useMotionValue, motion } from "framer-motion";
 import { Tab } from "./tab";
 
+const tabs = ["Top Projects", "Project Archive"];
+
+const animate = (idx: number) => {
+  return {
+    justifyContent: idx === 0 ? "flex-start" : "flex-end",
+  };
+};
+
+/* 
 const tabs = ["Top Projects", "Design Work", "Project Archive"];
+
+const animate = (idx: number) => {
+  return {
+          justifyContent:
+            idx === 0
+              ? "flex-start"
+              : idx === 1
+              ? "center"
+              : "flex-end",
+        }}
+
+*/
 
 const Tabs: React.FC<{
   tabIdx: number;
@@ -33,16 +54,9 @@ const Tabs: React.FC<{
       </div>
       <div
         className="w-full rounded-full flex -mt-4"
-        style={{
-          justifyContent:
-            tabHighlightIdx.get() === 0
-              ? "flex-start"
-              : tabHighlightIdx.get() === 1
-              ? "center"
-              : "flex-end",
-        }}>
+        style={animate(tabHighlightIdx.get())}>
         <motion.div
-          className="w-1/3 h-[1px] rounded-full bg-accent"
+          className="w-1/2 h-[1px] rounded-full bg-accent"
           layout
           transition={spring}
         />
