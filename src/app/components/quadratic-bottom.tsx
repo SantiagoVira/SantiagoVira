@@ -1,5 +1,6 @@
 "use client";
 
+import useWindowSize from "@/utils/use-window-size";
 import { useCallback, useEffect, useRef } from "react";
 
 const QuadraticBottom: React.FC = () => {
@@ -7,8 +8,7 @@ const QuadraticBottom: React.FC = () => {
 
   const setPath = useCallback(
     (controlXRatio: number, controlYRatio: number) => {
-      const screenWidth = window.innerWidth;
-
+      let screenWidth = window.innerWidth;
       if (path.current)
         path.current.setAttributeNS(
           null,

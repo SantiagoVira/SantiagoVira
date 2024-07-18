@@ -10,51 +10,24 @@ import { chooseRandomTidbit } from "./tidbit-box";
 import { ChangingTidbit } from "./hero";
 
 const ContactsSection: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end end"],
-  });
-
-  const spinnerNum = useTransform(scrollYProgress, [0, 1], [50, -50]);
-  const spinner = useTransform(spinnerNum, (val) => `${val}%`);
-
-  const link = useTransform(scrollYProgress, [0.4, 1], [200, -120]);
-  const container = useTransform(scrollYProgress, [0, 1], [200, 50]);
-
   return (
-    <>
-      <motion.div
-        ref={containerRef}
-        style={{ y: container }}
-        className="bg-darkBackground w-full h-60">
-        <motion.div
-          style={{ y: spinner, x: "-50%" }}
-          className="w-52 aspect-square">
-          <Image
-            src={santiagoCircle}
-            alt="Santiago Vira"
-            className="animate-[spin_4s_linear_infinite]"
-          />
-        </motion.div>
-        <motion.h3
-          className="font-dunk w-full text-center text-6xl"
-          style={{ y: link }}>
-          REACH OUT
-        </motion.h3>
-        <motion.div
-          style={{ y: link }}
-          className="w-80 ml-auto mr-auto flex justify-center text-xl gap-2 items-center">
-          <CustomLink href="https://www.linkedin.com/in/santiago-vira/">
-            LinkedIn
-          </CustomLink>
-          <CustomLink href="https://github.com/SantiagoVira">GitHub</CustomLink>
-          <CustomLink href="mailto:santiagovira06@gmail.com">Email</CustomLink>
-        </motion.div>
-      </motion.div>
-
-      <div className="bg-darkBackground h-20 w-full"></div>
-    </>
+    <div className="bg-darkBackground w-full relative py-20 mt-32">
+      <div className="w-52 aspect-square absolute -top-20 -left-20">
+        <Image
+          src={santiagoCircle}
+          alt="Santiago Vira"
+          className="animate-[spin_4s_linear_infinite]"
+        />
+      </div>
+      <h3 className="font-dunk w-full text-center text-6xl">REACH OUT</h3>
+      <div className="w-80 ml-auto mr-auto flex justify-center text-xl gap-2 items-center">
+        <CustomLink href="https://www.linkedin.com/in/santiago-vira/">
+          LinkedIn
+        </CustomLink>
+        <CustomLink href="https://github.com/SantiagoVira">GitHub</CustomLink>
+        <CustomLink href="mailto:santiagovira06@gmail.com">Email</CustomLink>
+      </div>
+    </div>
   );
 };
 
