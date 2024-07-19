@@ -21,7 +21,7 @@ export interface projectDataType {
   codeLink: string;
   description: string;
   category: string;
-  archived: boolean;
+  featured: boolean;
   year: number;
 }
 

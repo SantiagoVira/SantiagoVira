@@ -2,6 +2,7 @@ import About from "./components/about-section";
 import ContactsSection from "./components/contacts-section";
 import Hero from "./components/hero";
 import Projects from "./components/projects/project-section";
+import TidbitBox from "./components/tidbit-box";
 import { projectDataType } from "./utils/client";
 import { QUERIES } from "./utils/queries";
 import { queryCMS } from "./utils/store";
@@ -18,6 +19,7 @@ const Home = async () => {
 
   return (
     <>
+      <TidbitBox />
       <Hero />
       <About text={aboutBlurb.body} />
       <Projects topProjects={topProjects} archivedProjects={archivedProjects} />

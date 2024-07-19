@@ -17,7 +17,7 @@ const Project: React.FC<projectDataType> = ({
       <p className="text-accent/60 font-bold">{year}</p>
       <div className="flex items-start justify-start flex-col flex-1 gap-1">
         <Link
-          href={link ?? ""}
+          href={link ?? "/"}
           className={`text-accent w-full ${
             link ? "cursor-ne-resize" : "cursor-default"
           } mt-2 inline-block`}

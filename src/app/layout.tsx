@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "./components/smooth-scroll";
-import TidbitBox from "./components/tidbit-box";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,7 +33,6 @@ export default function RootLayout({
         <SmoothScroll>
           <main className="flex min-h-screen justify-center px-24">
             <div className="flex min-h-screen flex-col items-center justify-between">
-              <TidbitBox />
               {children}
             </div>
           </main>
