@@ -28,7 +28,7 @@ const ContactsSection: React.FC = () => {
   return (
     <motion.div
       ref={parentRef}
-      className="w-full mt-12 h-[15.5rem]"
+      className="w-full mt-24 h-[15.5rem]"
       style={{ clipPath }}>
       <div className="h-[15.5rem] fixed w-full bottom-0 bg-darkBackground flex flex-col justify-center">
         <div className="w-52 aspect-square absolute -top-20 -left-20">
