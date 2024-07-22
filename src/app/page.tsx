@@ -1,5 +1,6 @@
 import About from "./components/about-section";
 import ContactsSection from "./components/contacts-section";
+import ExperienceSection from "./components/experience-section";
 import Hero from "./components/hero";
 import Projects from "./components/projects/project-section";
 import TidbitBox from "./components/tidbit-box";
@@ -23,6 +24,7 @@ const Home = async () => {
       <Hero />
       <About text={aboutBlurb.body} />
       <Projects topProjects={topProjects} archivedProjects={archivedProjects} />
+      <ExperienceSection text={aboutBlurb.body} />
       <ContactsSection />
     </>
   );

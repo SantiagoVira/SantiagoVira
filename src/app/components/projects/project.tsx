@@ -19,7 +19,7 @@ const Project: React.FC<projectDataType> = ({
         <Link
           href={link ?? "/"}
           className={`text-accent w-full ${
-            link ? "cursor-ne-resize" : "cursor-default"
+            link ? "cursor-ne-resize" : "cursor-default pointer-events-none"
           } mt-2 inline-block`}
           target="_blank"
           aria-disabled={!link}>
