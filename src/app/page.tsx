@@ -4,7 +4,7 @@ import ExperienceSection from "./components/experience-section";
 import Hero from "./components/hero";
 import Projects from "./components/projects/project-section";
 import TidbitBox from "./components/tidbit-box";
-import { projectDataType } from "./utils/client";
+import { ExperienceType, projectDataType } from "./utils/client";
 import { QUERIES } from "./utils/queries";
 import { queryCMS } from "./utils/store";
 
@@ -18,13 +18,16 @@ const Home = async () => {
   const aboutBlurbQuery = await queryCMS(QUERIES.ABOUT_BLURB_QUERY);
   const aboutBlurb = aboutBlurbQuery.data as unknown as { body: any[] };
 
+  const experienceQuery = await queryCMS(QUERIES.EXPERIENCE_QUERY);
+  const experienceData = experienceQuery.data as unknown as ExperienceType[];
+
   return (
     <>
       <TidbitBox />
       <Hero />
       <About text={aboutBlurb.body} />
       <Projects topProjects={topProjects} archivedProjects={archivedProjects} />
-      <ExperienceSection text={aboutBlurb.body} />
+      <ExperienceSection experiences={experienceData} />
       <ContactsSection />
     </>
   );

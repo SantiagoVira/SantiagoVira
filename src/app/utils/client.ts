@@ -8,7 +8,7 @@ export const client = createClient({
   perspective: "published",
 });
 
-export interface experienceSectionType {
+export interface ExperienceType {
   title: string;
   position: string;
   time: string;

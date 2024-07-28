@@ -34,9 +34,17 @@ export const ARCHIVED_PROJECTS_QUERY = groq`*[_type == 'project' && featured == 
 	year
 }`;
 
+export const EXPERIENCE_QUERY = groq`*[_type == 'experienceSection'] | order(index asc) {
+    title,
+    position,
+    time,
+    body
+  }`;
+
 export const QUERIES = {
   ALL_PROJECTS_QUERY,
   TOP_PROJECTS_QUERY,
   ARCHIVED_PROJECTS_QUERY,
   ABOUT_BLURB_QUERY,
+  EXPERIENCE_QUERY,
 };

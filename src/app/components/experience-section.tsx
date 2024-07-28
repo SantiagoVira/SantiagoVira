@@ -1,10 +1,21 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 import useWindowSize from "@/utils/use-window-size";
 
-const ExperienceSection: React.FC<{ text: any[] }> = ({ text }) => {
+import PortableTextLayout from "@/utils/portable-text";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { ExperienceType } from "@/utils/client";
+
+const ExperienceSection: React.FC<{ experiences: ExperienceType[] }> = ({
+  experiences,
+}) => {
   // STATE, REFS & EFFECTS
   const [scrollRange, setScrollRange] = useState(0);
   const container = useRef<HTMLDivElement>(null);
@@ -46,16 +57,35 @@ const ExperienceSection: React.FC<{ text: any[] }> = ({ text }) => {
           </motion.div>
         </div>
       </div>
-      <p>
-        Occaecat quis fugiat eiusmod qui. Dolor excepteur eiusmod dolore dolor
-        voluptate culpa. Adipisicing reprehenderit occaecat exercitation dolore
-        dolore est labore in nulla laborum eiusmod commodo. Adipisicing do est
-        quis quis irure qui labore consequat labore. Duis quis laboris sint
-        Lorem est aliquip velit laborum non sit pariatur duis minim nulla.
-        Voluptate ad consequat commodo id non deserunt.
-      </p>
+      <Accordion type="multiple" className="max-w-[60rem] w-4/5 mb-32">
+        {experiences.map((e, i) => (
+          <ExperienceItem {...e} key={i} />
+        ))}
+      </Accordion>
     </>
   );
 };
 
 export default ExperienceSection;
+
+const ExperienceItem: React.FC<ExperienceType> = ({
+  title,
+  position,
+  time,
+  body,
+}) => {
+  return (
+    <AccordionItem value={title}>
+      <AccordionTrigger className="text-2xl font-bold">
+        {title}
+      </AccordionTrigger>
+      <AccordionContent className="text-lg">
+        <p className="italic">{position}</p>
+        <p className="font-thin mb-6">{time}</p>
+        <div className="ml-4">
+          <PortableTextLayout text={body} />
+        </div>
+      </AccordionContent>
+    </AccordionItem>
+  );
+};

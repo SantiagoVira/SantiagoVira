@@ -6,7 +6,7 @@ import ProjectList from "./project-list";
 import { projectDataType } from "@/utils/client";
 import Marquee from "react-fast-marquee";
 import Link from "next/link";
-import UnderlineHover from "../underline-hover";
+import UnderlineHover from "../ui/underline-hover";
 
 const Projects: React.FC<{
   topProjects: projectDataType[];

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import UnderlineHover from "../underline-hover";
+import UnderlineHover from "../ui/underline-hover";
 import { projectDataType } from "@/utils/client";
 import Link from "next/link";
 

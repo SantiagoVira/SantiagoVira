@@ -2,6 +2,7 @@
 
 import { cn } from "@/utils/cn";
 import { useMotionValueEvent, useScroll } from "framer-motion";
+import { ArrowUp } from "lucide-react";
 import { useState } from "react";
 
 const ReturnToTop: React.FC = () => {
@@ -24,7 +25,7 @@ const ReturnToTop: React.FC = () => {
           behavior: "smooth",
         })
       }>
-      ▲ Back to Top
+      <ArrowUp /> Back to Top
     </button>
   );
 };

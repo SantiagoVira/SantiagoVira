@@ -5,7 +5,7 @@ import { useRef } from "react";
 import santiagoCircle from "@/images/santiago-circle.svg";
 import Image from "next/image";
 import Link from "next/link";
-import UnderlineHover from "./underline-hover";
+import UnderlineHover from "./ui/underline-hover";
 
 const ContactsSection: React.FC = () => {
   const parentRef = useRef<HTMLDivElement>(null);

@@ -1,5 +1,5 @@
 import ProjectList from "@/components/projects/project-list";
-import ReturnToTop from "@/components/return-to-top";
+import ReturnToTop from "@/components/ui/return-to-top";
 import { projectDataType } from "@/utils/client";
 import { QUERIES } from "@/utils/queries";
 import { queryCMS } from "@/utils/store";
