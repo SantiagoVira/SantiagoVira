@@ -14,7 +14,9 @@ import PortableTextLayout from "@/utils/portable-text";
 
 const About: React.FC<{ text: any[] }> = ({ text }) => {
   return (
-    <div className="flex flex-col relative w-full justify-start items-center">
+    <div
+      className="flex flex-col relative w-full justify-start items-center"
+      id="about">
       <div className="border-t-[8vh] border-t-transparent border-l-[50vw] border-l-transparent border-r-[50vw] border-accent border-b-[8vh] w-0 h-0" />
       <div className="flex flex-col relative w-full justify-start h-screen items-center">
         <div className="h-screen sticky top-0 w-full flex items-start gap-20 justify-between p-24 bg-accent">

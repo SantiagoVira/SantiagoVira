@@ -10,7 +10,7 @@ const ProjectsPage: React.FC = async () => {
 
   return (
     <>
-      <h2 className="font-dunk text-6xl text-accent mt-28 mb-10">
+      <h2 className="font-dunk text-6xl text-accent mt-14 mb-10">
         ALL PROJECTS
       </h2>
 

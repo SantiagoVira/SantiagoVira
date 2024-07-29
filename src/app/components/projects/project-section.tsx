@@ -16,16 +16,10 @@ const Projects: React.FC<{
 
   return (
     <>
-      <div className="flex flex-col w-full justify-start items-center max-w-[60rem] gap-4">
+      <div
+        className="flex flex-col w-full justify-start items-center max-w-[60rem] gap-4"
+        id="projects">
         <h2 className="font-dunk text-6xl text-accent mb-5">TOP PROJECTS</h2>
-        {/* <Tabs tabIdx={tabIdx} setTabIdx={setTabIdx} />
-        {tabIdx === 1 ? (
-          <p className="text-accent/80 text-xs text-left w-full">
-            * Archived projects may no longer be maintained
-          </p>
-        ) : (
-          <></>
-        )} */}
 
         <ProjectList projects={[topProjects, archivedProjects][tabIdx]} />
       </div>

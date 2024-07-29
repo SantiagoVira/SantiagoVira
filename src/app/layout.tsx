@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "./components/smooth-scroll";
+import Header from "./components/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
         <link rel="icon" href="/img/favicon.ico" sizes="any" />
       </head>
       <body className={`${inter.className} bg-background text-accent`}>
+        <Header />
         <SmoothScroll>
           <main className="flex min-h-screen justify-center px-24">
             <div className="flex min-h-screen flex-col items-center justify-between">

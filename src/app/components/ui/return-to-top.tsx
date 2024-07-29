@@ -16,7 +16,7 @@ const ReturnToTop: React.FC = () => {
   return (
     <button
       className={cn(
-        "border-accent border  rounded bg-background px-3 py-2 sticky right-8 bottom-8",
+        "border-accent border flex gap-3 items-center rounded bg-background px-3 py-2 sticky right-8 bottom-8",
         showButton ? "" : "hidden"
       )}
       onClick={() =>

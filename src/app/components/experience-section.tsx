@@ -47,7 +47,10 @@ const ExperienceSection: React.FC<{ experiences: ExperienceType[] }> = ({
 
   return (
     <>
-      <div ref={container} className="h-[300vh] relative w-full">
+      <div
+        ref={container}
+        className="h-[300vh] relative w-full"
+        id="experience">
         <div className="sticky overflow-hidden top-0 h-screen">
           <motion.div
             style={{ x: spring }}
