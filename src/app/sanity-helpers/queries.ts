@@ -1,5 +1,3 @@
-// ./sanity/lib/queries.ts
-
 import { groq } from "next-sanity";
 
 export const ABOUT_BLURB_QUERY = groq`*[_type == "textChunk" && title == "about"][0]`;

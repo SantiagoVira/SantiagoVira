@@ -1,8 +1,9 @@
 "use client";
 
-import useWindowSize from "@/utils/use-window-size";
 import { useScroll } from "framer-motion";
 import { useRef } from "react";
+
+import useWindowSize from "@utils/use-window-size";
 
 export const tidbits = ["✧", "⏺", "☺︎", "✸", "⏣", "❤︎", "❄︎", "✌︎", "☀︎"];
 const SPAWN_CHANCE = 0.16;

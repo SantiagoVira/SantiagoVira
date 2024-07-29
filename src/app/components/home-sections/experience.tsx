@@ -1,17 +1,13 @@
 "use client";
 
-import React, { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
-import useWindowSize from "@/utils/use-window-size";
 
-import PortableTextLayout from "@/utils/portable-text";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { ExperienceType } from "@/utils/client";
+import { Accordion } from "@components/ui/accordion";
+import ExperienceItem from "@components/experience-item";
+
+import useWindowSize from "@utils/use-window-size";
+import { ExperienceType } from "@utils/client";
 
 const ExperienceSection: React.FC<{ experiences: ExperienceType[] }> = ({
   experiences,
@@ -70,25 +66,3 @@ const ExperienceSection: React.FC<{ experiences: ExperienceType[] }> = ({
 };
 
 export default ExperienceSection;
-
-const ExperienceItem: React.FC<ExperienceType> = ({
-  title,
-  position,
-  time,
-  body,
-}) => {
-  return (
-    <AccordionItem value={title}>
-      <AccordionTrigger className="text-2xl font-bold">
-        {title}
-      </AccordionTrigger>
-      <AccordionContent className="text-lg">
-        <p className="italic">{position}</p>
-        <p className="font-thin mb-6">{time}</p>
-        <div className="ml-4">
-          <PortableTextLayout text={body} />
-        </div>
-      </AccordionContent>
-    </AccordionItem>
-  );
-};

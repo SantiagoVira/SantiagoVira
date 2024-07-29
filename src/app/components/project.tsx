@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
-import UnderlineHover from "../ui/underline-hover";
-import { projectDataType } from "@/utils/client";
 import Link from "next/link";
+
+import UnderlineHover from "@components/ui/underline-hover";
+import { projectDataType } from "@utils/client";
 
 const Project: React.FC<projectDataType> = ({
   year,

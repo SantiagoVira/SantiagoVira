@@ -1,8 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { chooseRandomTidbit } from "./tidbit-box";
-import { cn } from "@/utils/cn";
+import ChangingTidbit from "../changing-tidbit";
 
 const Hero: React.FC = () => {
   return (
@@ -18,27 +16,6 @@ const Hero: React.FC = () => {
         </span>
       </h1>
     </div>
-  );
-};
-
-export const ChangingTidbit: React.FC<{
-  delay: number;
-  className?: string;
-}> = ({ delay, className }) => {
-  const [symbol, setSymbol] = useState(chooseRandomTidbit());
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSymbol(chooseRandomTidbit());
-    }, delay);
-
-    return () => clearInterval(interval);
-  }, [delay]);
-
-  return (
-    <span className={cn("inline-block", className)} suppressHydrationWarning>
-      {symbol}
-    </span>
   );
 };
 

@@ -2,12 +2,13 @@
 
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef } from "react";
-import santiagoCircle from "@/images/santiago-circle.svg";
 import Image from "next/image";
 import Link from "next/link";
-import UnderlineHover from "./ui/underline-hover";
 
-const ContactsSection: React.FC = () => {
+import santiagoCircle from "@images/santiago-circle.svg";
+import UnderlineHover from "@components/ui/underline-hover";
+
+const Footer: React.FC = () => {
   const parentRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -66,4 +67,4 @@ const CustomLink: React.FC<React.PropsWithChildren<{ href: string }>> = ({
   );
 };
 
-export default ContactsSection;
+export default Footer;

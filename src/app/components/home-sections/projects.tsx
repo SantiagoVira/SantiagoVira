@@ -1,19 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import Tabs from "./tabs";
-import ProjectList from "./project-list";
-import { projectDataType } from "@/utils/client";
 import Marquee from "react-fast-marquee";
 import Link from "next/link";
-import UnderlineHover from "../ui/underline-hover";
 
-const Projects: React.FC<{
+import ProjectList from "@components/project-list";
+import UnderlineHover from "@components/ui/underline-hover";
+import { projectDataType } from "@utils/client";
+
+const ProjectsSection: React.FC<{
   topProjects: projectDataType[];
-  archivedProjects: projectDataType[];
-}> = ({ topProjects, archivedProjects }) => {
-  const [tabIdx, setTabIdx] = useState(0);
-
+}> = ({ topProjects }) => {
   return (
     <>
       <div
@@ -21,7 +17,7 @@ const Projects: React.FC<{
         id="projects">
         <h2 className="font-dunk text-6xl text-accent mb-5">TOP PROJECTS</h2>
 
-        <ProjectList projects={[topProjects, archivedProjects][tabIdx]} />
+        <ProjectList projects={topProjects} />
       </div>
       <div className="w-screen mt-2">
         <Marquee autoFill={true} pauseOnClick>
@@ -38,4 +34,4 @@ const Projects: React.FC<{
   );
 };
 
-export default Projects;
+export default ProjectsSection;

@@ -1,6 +1,7 @@
 import { Fragment } from "react";
-import Project from "./project";
-import { projectDataType } from "@/utils/client";
+
+import Project from "@components/project";
+import { projectDataType } from "@utils/client";
 
 const ProjectList: React.FC<{ projects: projectDataType[] }> = ({
   projects,

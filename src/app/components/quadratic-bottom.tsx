@@ -1,6 +1,5 @@
 "use client";
 
-import useWindowSize from "@/utils/use-window-size";
 import { useCallback, useEffect, useRef } from "react";
 
 const QuadraticBottom: React.FC = () => {

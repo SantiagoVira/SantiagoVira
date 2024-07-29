@@ -1,4 +1,4 @@
-import { createClient } from "@sanity/client/stega";
+import { createClient } from "@sanity/client";
 
 export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
@@ -24,14 +24,3 @@ export interface projectDataType {
   featured: boolean;
   year: number;
 }
-
-// export interface infoType {
-//   _createdAt: string;
-//   _id: string;
-//   _rev: string;
-//   _type: string;
-//   _updatedAt: string;
-//   slug: { _type: string; current: string };
-//   title: string;
-//   body: any[];
-// }

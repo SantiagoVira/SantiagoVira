@@ -1,8 +1,9 @@
-import ProjectList from "@/components/projects/project-list";
-import ReturnToTop from "@/components/ui/return-to-top";
-import { projectDataType } from "@/utils/client";
-import { QUERIES } from "@/utils/queries";
-import { queryCMS } from "@/utils/store";
+import ProjectList from "@components/project-list";
+import ReturnToTop from "@components/ui/return-to-top";
+
+import { projectDataType } from "@cms/client";
+import { QUERIES } from "@cms/queries";
+import { queryCMS } from "@cms/store";
 
 const ProjectsPage: React.FC = async () => {
   const allProjectsQuery = await queryCMS(QUERIES.ALL_PROJECTS_QUERY);

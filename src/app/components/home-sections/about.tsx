@@ -1,18 +1,12 @@
 "use client";
 
-import {
-  useScroll,
-  useTransform,
-  motion,
-  useMotionValueEvent,
-} from "framer-motion";
 import Image from "next/image";
-import { useRef, useState } from "react";
-import Bread1 from "@/images/bread1.jpeg";
-import QuadraticBottom from "./quadratic-bottom";
-import PortableTextLayout from "@/utils/portable-text";
 
-const About: React.FC<{ text: any[] }> = ({ text }) => {
+import QuadraticBottom from "@components/quadratic-bottom";
+import PortableTextLayout from "@utils/portable-text";
+import Bread1 from "@images/bread1.jpeg";
+
+const AboutSection: React.FC<{ text: any[] }> = ({ text }) => {
   return (
     <div
       className="flex flex-col relative w-full justify-start items-center"
@@ -36,4 +30,4 @@ const About: React.FC<{ text: any[] }> = ({ text }) => {
   );
 };
 
-export default About;
+export default AboutSection;

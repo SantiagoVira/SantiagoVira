@@ -1,9 +1,10 @@
 "use client";
 
-import { cn } from "@/utils/cn";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 import { useState } from "react";
+
+import { cn } from "@utils/cn";
 
 const ReturnToTop: React.FC = () => {
   const [showButton, setShowButton] = useState(false);
