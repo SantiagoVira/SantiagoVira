@@ -17,7 +17,7 @@ const Projects: React.FC<{
   return (
     <>
       <div
-        className="flex flex-col w-full justify-start items-center max-w-[60rem] gap-4"
+        className="flex flex-col w-full justify-start items-center max-w-[60rem] gap-4 pt-10"
         id="projects">
         <h2 className="font-dunk text-6xl text-accent mb-5">TOP PROJECTS</h2>
 
