@@ -19,6 +19,7 @@ export interface projectDataType {
   title: string;
   link: string;
   codeLink: string;
+  caseStudyLink: string;
   description: string;
   category: string;
   featured: boolean;

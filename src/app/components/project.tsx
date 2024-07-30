@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import UnderlineHover from "@components/ui/underline-hover";
-import { projectDataType } from "@utils/client";
+import { projectDataType } from "@cms/client";
 
 const Project: React.FC<projectDataType> = ({
   year,
@@ -9,6 +9,7 @@ const Project: React.FC<projectDataType> = ({
   description,
   category,
   codeLink,
+  caseStudyLink,
   link,
 }) => {
   return (
@@ -32,18 +33,33 @@ const Project: React.FC<projectDataType> = ({
             <p className="text-accent/75">{description}</p>
           </div>
         </Link>
-        {codeLink ? (
-          <UnderlineHover thin>
-            <Link
-              href={codeLink}
-              className="text-accent mt-2 inline-block"
-              target="_blank">
-              View Code
-            </Link>
-          </UnderlineHover>
-        ) : (
-          <></>
-        )}
+        <div className="flex items-center gap-[0.33rem]">
+          {codeLink ? (
+            <UnderlineHover thin>
+              <Link
+                href={codeLink}
+                className="text-accent mt-2 inline-block"
+                target="_blank">
+                View Code
+              </Link>
+            </UnderlineHover>
+          ) : (
+            <></>
+          )}
+          {codeLink && caseStudyLink ? <p className="mt-2">•</p> : <></>}
+          {caseStudyLink ? (
+            <UnderlineHover thin>
+              <Link
+                href={caseStudyLink}
+                className="text-accent mt-2 inline-block"
+                target="_blank">
+                See Case Study
+              </Link>
+            </UnderlineHover>
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
     </div>
   );
