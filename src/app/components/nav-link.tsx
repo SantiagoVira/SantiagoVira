@@ -1,5 +1,6 @@
 import { useRouter } from "next/navigation";
 import UnderlineHover from "@components/ui/underline-hover";
+import { animatePageOut } from "@/animations";
 
 const NavLink: React.FC<React.PropsWithChildren<{ id: string }>> = ({
   id,
@@ -12,7 +13,7 @@ const NavLink: React.FC<React.PropsWithChildren<{ id: string }>> = ({
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     } else {
-      router.push(`/#${id}`);
+      animatePageOut(`/#${id}`, router);
     }
   };
 

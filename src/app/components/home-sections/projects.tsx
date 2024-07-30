@@ -5,7 +5,8 @@ import Link from "next/link";
 
 import ProjectList from "@components/project-list";
 import UnderlineHover from "@components/ui/underline-hover";
-import { projectDataType } from "@utils/client";
+import { projectDataType } from "@cms/client";
+import TransitionLink from "../ui/transition-link";
 
 const ProjectsSection: React.FC<{
   topProjects: projectDataType[];
@@ -23,7 +24,9 @@ const ProjectsSection: React.FC<{
         <Marquee autoFill={true} pauseOnClick>
           <div className="gap-2 mx-1 uppercase flex">
             <UnderlineHover>
-              <Link href="/projects">View all projects</Link>
+              <TransitionLink href="/projects">
+                View all projects
+              </TransitionLink>
             </UnderlineHover>
 
             <span>•</span>
