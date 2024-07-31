@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 import UnderlineHover from "@components/ui/underline-hover";
-import { projectDataType } from "@cms/client";
+import { ProjectDataType } from "@/sanity-helpers";
 
-const Project: React.FC<projectDataType> = ({
+const Project: React.FC<ProjectDataType> = ({
   year,
   title,
   description,

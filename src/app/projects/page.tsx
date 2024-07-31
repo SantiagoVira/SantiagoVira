@@ -1,13 +1,11 @@
 import ProjectList from "@components/project-list";
 import ReturnToTop from "@components/ui/return-to-top";
 
-import { projectDataType } from "@cms/client";
-import { QUERIES } from "@cms/queries";
-import { queryCMS } from "@cms/store";
+import { ProjectDataType, QUERIES, queryCMS } from "@/sanity-helpers";
 
 const ProjectsPage: React.FC = async () => {
   const allProjectsQuery = await queryCMS(QUERIES.ALL_PROJECTS_QUERY);
-  const allProjects = allProjectsQuery.data as unknown as projectDataType[];
+  const allProjects = allProjectsQuery.data as unknown as ProjectDataType[];
 
   return (
     <>

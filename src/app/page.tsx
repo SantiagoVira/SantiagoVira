@@ -13,7 +13,7 @@ import {
   ExperienceType,
   ProjectDataType,
   ResumeType,
-} from "@cms/index";
+} from "@/sanity-helpers";
 
 const Home = async () => {
   const topProjectsQuery = await queryCMS(QUERIES.TOP_PROJECTS_QUERY);

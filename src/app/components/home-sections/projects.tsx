@@ -1,15 +1,14 @@
 "use client";
 
 import Marquee from "react-fast-marquee";
-import Link from "next/link";
 
 import ProjectList from "@components/project-list";
 import UnderlineHover from "@components/ui/underline-hover";
-import { projectDataType } from "@cms/client";
+import { ProjectDataType } from "@/sanity-helpers";
 import TransitionLink from "../ui/transition-link";
 
 const ProjectsSection: React.FC<{
-  topProjects: projectDataType[];
+  topProjects: ProjectDataType[];
 }> = ({ topProjects }) => {
   return (
     <>
