@@ -4,8 +4,9 @@ import ReturnToTop from "@components/ui/return-to-top";
 import { ProjectDataType, QUERIES, queryCMS } from "@/sanity-helpers";
 
 const ProjectsPage: React.FC = async () => {
-  const allProjectsQuery = await queryCMS(QUERIES.ALL_PROJECTS_QUERY);
-  const allProjects = allProjectsQuery.data as unknown as ProjectDataType[];
+  const allProjects = await queryCMS<ProjectDataType[]>(
+    QUERIES.ALL_PROJECTS_QUERY
+  );
 
   return (
     <>
