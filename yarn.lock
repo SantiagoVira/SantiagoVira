@@ -2315,11 +2315,6 @@ lru-cache@^10.2.0:
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-10.2.2.tgz#48206bc114c1252940c41b25b41af5b545aca878"
   integrity sha512-9hp3Vp2/hFQUiIwKo8XCeFVnrg8Pk3TYNPIR7tJADKi5YfcF7vEaK7avFHTlSy3kOKYaJQaalfEo6YuXdceBOQ==
 
-lucide-react@^0.416.0:
-  version "0.416.0"
-  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.416.0.tgz#657da248f9b862703d7d80aafb912e79ad886313"
-  integrity sha512-wPWxTzdss1CTz2aqcNWNlbh4YSnH9neJWP3RaeXepxpLCTW+pmu7WcT/wxJe+Q7Y7DqGOxAqakJv0pIK3431Ag==
-
 mendoza@3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/mendoza/-/mendoza-3.0.4.tgz#1ea33ac2bc1d5f735ee7b1394b5cf3c3f0062f84"
@@ -2760,6 +2755,11 @@ react-fast-marquee@^1.6.5:
   version "1.6.5"
   resolved "https://registry.yarnpkg.com/react-fast-marquee/-/react-fast-marquee-1.6.5.tgz#98929ae93eef087a607a71e9d45ab76bba97dc16"
   integrity sha512-swDnPqrT2XISAih0o74zQVE2wQJFMvkx+9VZXYYNSLb/CUcAzU9pNj637Ar2+hyRw6b4tP6xh4GQZip2ZCpQpg==
+
+react-icons@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-5.2.1.tgz#28c2040917b2a2eda639b0f797bff1888e018e4a"
+  integrity sha512-zdbW5GstTzXaVKvGSyTaBalt7HSfuK5ovrzlpyiWHAFXndXTdd/1hdDHI4xBM1Mn7YriT6aqESucFl9kEXzrdw==
 
 react-is@18.2.0:
   version "18.2.0"

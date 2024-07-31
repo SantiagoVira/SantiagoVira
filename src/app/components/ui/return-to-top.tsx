@@ -1,7 +1,7 @@
 "use client";
 
 import { useMotionValueEvent, useScroll } from "framer-motion";
-import { ArrowUp } from "lucide-react";
+import { FaArrowUp } from "react-icons/fa";
 import { useState } from "react";
 
 import { cn } from "@utils/cn";
@@ -26,7 +26,7 @@ const ReturnToTop: React.FC = () => {
           behavior: "smooth",
         })
       }>
-      <ArrowUp /> Back to Top
+      <FaArrowUp /> Back to Top
     </button>
   );
 };

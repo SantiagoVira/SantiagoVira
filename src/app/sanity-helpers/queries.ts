@@ -42,10 +42,16 @@ export const EXPERIENCE_QUERY = groq`*[_type == 'experienceSection'] | order(ind
     body
   }`;
 
+export const RESUME_QUERY = groq`*[_type == 'fileData' && title == "resume"][0] {
+	title,
+	"link": file.asset->url
+}`;
+
 export const QUERIES = {
   ALL_PROJECTS_QUERY,
   TOP_PROJECTS_QUERY,
   ARCHIVED_PROJECTS_QUERY,
   ABOUT_BLURB_QUERY,
   EXPERIENCE_QUERY,
+  RESUME_QUERY,
 };

@@ -15,7 +15,7 @@ export interface ExperienceType {
   body: any[];
 }
 
-export interface projectDataType {
+export interface ProjectDataType {
   title: string;
   link: string;
   codeLink: string;
@@ -24,4 +24,9 @@ export interface projectDataType {
   category: string;
   featured: boolean;
   year: number;
+}
+
+export interface ResumeType {
+  title: string;
+  link: string;
 }
