@@ -9,9 +9,9 @@ import Link from "next/link";
 
 import santiagoCircle from "@images/santiago-circle.svg";
 import UnderlineHover from "@components/ui/underline-hover";
-import { ResumeType } from "@/sanity-helpers";
+import { FileType } from "@/sanity-helpers";
 
-const Footer: React.FC<{ resumeData: ResumeType }> = ({ resumeData }) => {
+const Footer: React.FC<{ resumeData: FileType }> = ({ resumeData }) => {
   const parentRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
