@@ -4,7 +4,7 @@ import {
   AccordionTrigger,
 } from "@components/ui/accordion";
 
-import { ExperienceType } from "@utils/client";
+import { ExperienceType } from "@/sanity-helpers";
 import PortableTextLayout from "@utils/portable-text";
 
 const ExperienceItem: React.FC<ExperienceType> = ({

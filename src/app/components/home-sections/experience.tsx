@@ -7,7 +7,7 @@ import { Accordion } from "@components/ui/accordion";
 import ExperienceItem from "@components/experience-item";
 
 import useWindowSize from "@utils/use-window-size";
-import { ExperienceType } from "@utils/client";
+import { ExperienceType } from "@/sanity-helpers";
 
 const ExperienceSection: React.FC<{ experiences: ExperienceType[] }> = ({
   experiences,

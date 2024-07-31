@@ -1,9 +1,9 @@
 import { Fragment } from "react";
 
 import Project from "@components/project";
-import { projectDataType } from "@utils/client";
+import { ProjectDataType } from "@/sanity-helpers";
 
-const ProjectList: React.FC<{ projects: projectDataType[] }> = ({
+const ProjectList: React.FC<{ projects: ProjectDataType[] }> = ({
   projects,
 }) => {
   return (
