@@ -76,11 +76,9 @@ const CustomLink: React.FC<React.PropsWithChildren<{ href: string }>> = ({
 }) => {
   return (
     <div className="flex-1 flex justify-center">
-      <UnderlineHover>
-        <Link href={href} target="_blank" className="cursor-ne-resize">
-          {children}
-        </Link>
-      </UnderlineHover>
+      <Link href={href} target="_blank" className="cursor-ne-resize">
+        {children}
+      </Link>
     </div>
   );
 };
