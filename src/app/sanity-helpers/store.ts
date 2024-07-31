@@ -8,5 +8,7 @@ queryStore.setServerClient(client.withConfig({ token }));
 
 const { loadQuery } = queryStore;
 
-export const queryCMS = async (q: string) =>
-  await loadQuery<SanityDocument[]>(q);
+export async function queryCMS<T>(q: string): Promise<T> {
+  const queryResult = await loadQuery<SanityDocument[]>(q);
+  return queryResult.data as unknown as T;
+}

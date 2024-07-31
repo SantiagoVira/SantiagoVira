@@ -4,9 +4,12 @@ import Image from "next/image";
 
 import QuadraticBottom from "@components/quadratic-bottom";
 import PortableTextLayout from "@utils/portable-text";
-import Bread1 from "@images/bread1.jpeg";
+import { FileType } from "@/sanity-helpers";
 
-const AboutSection: React.FC<{ text: any[] }> = ({ text }) => {
+const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
+  text,
+  portraitData,
+}) => {
   return (
     <div
       className="flex flex-col relative w-full justify-start items-center"
@@ -18,11 +21,14 @@ const AboutSection: React.FC<{ text: any[] }> = ({ text }) => {
             <h2 className="font-dunk text-6xl">ABOUT</h2>
             <PortableTextLayout text={text} />
           </div>
-          <Image
-            className="min-w-[30vw] h-[80vh] object-cover"
-            src={Bread1}
-            alt="image"
-          />{" "}
+          <div className="min-w-[30vw] w-full h-[80vh] relative rounded-lg overflow-hidden">
+            <Image
+              className="object-cover"
+              fill
+              src={portraitData.link}
+              alt="image"
+            />
+          </div>
         </div>
       </div>
       <QuadraticBottom />

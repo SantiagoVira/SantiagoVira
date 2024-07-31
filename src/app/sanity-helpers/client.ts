@@ -26,7 +26,11 @@ export interface ProjectDataType {
   year: number;
 }
 
-export interface ResumeType {
+export interface FileType {
   title: string;
   link: string;
+}
+
+export interface TextType {
+  body: any[];
 }

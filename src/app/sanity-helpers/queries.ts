@@ -47,6 +47,11 @@ export const RESUME_QUERY = groq`*[_type == 'fileData' && title == "resume"][0] 
 	"link": file.asset->url
 }`;
 
+export const PORTRAIT_QUERY = groq`*[_type == 'fileData' && title == "portrait"][0] {
+	title,
+	"link": file.asset->url
+}`;
+
 export const QUERIES = {
   ALL_PROJECTS_QUERY,
   TOP_PROJECTS_QUERY,
@@ -54,4 +59,5 @@ export const QUERIES = {
   ABOUT_BLURB_QUERY,
   EXPERIENCE_QUERY,
   RESUME_QUERY,
+  PORTRAIT_QUERY,
 };
