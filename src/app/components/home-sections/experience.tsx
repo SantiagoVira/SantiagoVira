@@ -56,7 +56,9 @@ const ExperienceSection: React.FC<{ experiences: ExperienceType[] }> = ({
           </motion.div>
         </div>
       </div>
-      <Accordion type="multiple" className="max-w-[60rem] w-4/5 mb-32">
+      <Accordion
+        type="multiple"
+        className="md:max-w-[60rem] md:w-4/5 w-full mb-32 px-12 md:px-0">
         {experiences.map((e, i) => (
           <ExperienceItem {...e} key={i} />
         ))}

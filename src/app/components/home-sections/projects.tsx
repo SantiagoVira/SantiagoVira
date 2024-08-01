@@ -15,7 +15,11 @@ const ProjectsSection: React.FC<{
       <div
         className="flex flex-col w-full justify-start items-center max-w-[60rem] gap-4 pt-10"
         id="projects">
-        <h2 className="font-dunk text-6xl text-accent mb-5">TOP PROJECTS</h2>
+        <div className="w-screen px-12 mb-5">
+          <h2 className="font-dunk text-4xl md:text-6xl text-accent">
+            TOP PROJECTS
+          </h2>
+        </div>
 
         <ProjectList projects={topProjects} />
       </div>

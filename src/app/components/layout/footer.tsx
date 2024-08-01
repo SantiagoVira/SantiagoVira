@@ -10,6 +10,7 @@ import Link from "next/link";
 import santiagoCircle from "@images/santiago-circle.svg";
 import UnderlineHover from "@components/ui/underline-hover";
 import { FileType } from "@/sanity-helpers";
+import useWindowSize from "@/utils/use-window-size";
 
 const Footer: React.FC<{ resumeData: FileType }> = ({ resumeData }) => {
   const parentRef = useRef<HTMLDivElement>(null);
@@ -29,43 +30,60 @@ const Footer: React.FC<{ resumeData: FileType }> = ({ resumeData }) => {
     return `polygon(50% ${topY}%, ${rightX}% 50%, 50% ${bottomY}%, ${leftX}% 50%)`;
   });
 
-  return (
-    <motion.div
-      ref={parentRef}
-      className="w-full mt-24 h-[15.5rem]"
-      style={{ clipPath }}>
-      <div className="h-[15.5rem] gap-3 fixed w-full bottom-0 bg-darkBackground flex flex-col justify-center items-center">
-        <div className="w-52 aspect-square absolute -top-20 -left-20">
-          <Image
-            src={santiagoCircle}
-            alt="Santiago Vira"
-            className="animate-[spin_4s_linear_infinite]"
-          />
+  const { isDesktop } = useWindowSize();
+
+  const Content = () => (
+    <div className="flex flex-col items-center w-fit gap-3">
+      <h3 className="font-dunk w-full text-center md:text-6xl text-4xl">
+        REACH OUT
+      </h3>
+      <div className="flex justify-between w-full items-center md:px-3">
+        <div className="flex items-center gap-2">
+          <CustomLink href="https://www.linkedin.com/in/santiago-vira/">
+            <FaLinkedin size="2rem" />
+          </CustomLink>
+          <CustomLink href="https://github.com/SantiagoVira">
+            <FaGithub size="2rem" />
+          </CustomLink>
+          <CustomLink href="mailto:santiagovira06@gmail.com">
+            <SiGmail size="2rem" />
+          </CustomLink>
         </div>
-        <div className="flex flex-col items-center w-fit gap-3">
-          <h3 className="font-dunk w-full text-center text-6xl">REACH OUT</h3>
-          <div className="flex justify-between w-full items-center px-3">
-            <div className="flex items-center gap-2">
-              <CustomLink href="https://www.linkedin.com/in/santiago-vira/">
-                <FaLinkedin size="2rem" />
-              </CustomLink>
-              <CustomLink href="https://github.com/SantiagoVira">
-                <FaGithub size="2rem" />
-              </CustomLink>
-              <CustomLink href="mailto:santiagovira06@gmail.com">
-                <SiGmail size="2rem" />
-              </CustomLink>
-            </div>
-            <UnderlineHover thin>
-              <Link href={`${resumeData.link}?dl=Santiago_Vira_Resume.pdf`}>
-                Download my resume
-              </Link>
-            </UnderlineHover>
-          </div>
-        </div>
+        <UnderlineHover thin>
+          <Link href={`${resumeData.link}?dl=Santiago_Vira_Resume.pdf`}>
+            {isDesktop ? "Download my resume" : "Resume"}
+          </Link>
+        </UnderlineHover>
       </div>
-    </motion.div>
+    </div>
   );
+
+  if (isDesktop) {
+    return (
+      <motion.div
+        ref={parentRef}
+        className="w-full mt-24 h-[15.5rem]"
+        style={{ clipPath }}>
+        <div className="h-[15.5rem] gap-3 fixed w-full bottom-0 bg-darkBackground flex flex-col justify-center items-center">
+          <div className="w-52 aspect-square absolute -top-20 -left-20">
+            <Image
+              src={santiagoCircle}
+              alt="Santiago Vira"
+              className="animate-[spin_4s_linear_infinite]"
+            />
+          </div>
+
+          <Content />
+        </div>
+      </motion.div>
+    );
+  } else {
+    return (
+      <div className="px-12 py-8 mt-24 w-full bg-darkBackground flex justify-center items-center">
+        <Content />
+      </div>
+    );
+  }
 };
 
 export default Footer;

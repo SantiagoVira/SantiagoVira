@@ -9,15 +9,15 @@ const ProjectsPage: React.FC = async () => {
   );
 
   return (
-    <>
-      <h2 className="font-dunk text-6xl text-accent mt-14 mb-10">
+    <div className="w-full flex flex-col items-end">
+      <h2 className="font-dunk text-4xl w-full px-12 md:text-6xl text-accent mt-14 mb-10">
         ALL PROJECTS
       </h2>
 
       <ProjectList projects={allProjects} />
 
       <ReturnToTop />
-    </>
+    </div>
   );
 };
 
