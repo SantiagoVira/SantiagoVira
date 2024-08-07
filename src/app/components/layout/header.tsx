@@ -3,13 +3,14 @@
 import useWindowSize from "@/utils/use-window-size";
 import NavLink from "../nav-link";
 import TransitionLink from "../ui/transition-link";
+import Image from "next/image";
 
 const Header: React.FC = () => {
   const { isDesktop } = useWindowSize();
   return (
     <div className="flex items-start justify-between fixed top-0 left-0 w-screen px-6 pt-4 pb-5 z-50 bg-gradient-to-b from-background/40 to-transparent">
-      <TransitionLink className="font-dunk text-xl" href="/">
-        SV
+      <TransitionLink className="font-dunk text-xl w-8 relative h-6" href="/">
+        <Image src="/img/logo.png" fill alt="Logo" className="object-contain" />
       </TransitionLink>
       {isDesktop && (
         <div className="flex items-center justify-evenly gap-6">
