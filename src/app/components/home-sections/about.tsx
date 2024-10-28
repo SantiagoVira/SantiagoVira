@@ -33,7 +33,6 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
 
   // HOOK CALLS
   const {
-    isDesktop,
     windowSize: { width: viewportWidth },
   } = useWindowSize();
 
@@ -114,32 +113,6 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
           </motion.p>
         </div>
       </div>
-      {/* <div
-        className="flex flex-col relative w-full justify-start items-center"
-        id="about">
-        <div className="border-t-[8vh] border-t-transparent border-l-[50vw] border-l-transparent border-r-[50vw] border-accent border-b-[8vh] w-0 h-0" />
-        <div className="flex flex-col relative w-full justify-start h-fit md:h-screen items-center">
-          <div className="h-full w-full flex flex-col items-center gap-20 justify-start py-24 bg-accent">
-            <div className="flex flex-col text-background text-lg md:text-xl gap-2 max-w-[60rem] mx-12">
-              <SectionHeader variant="dark">ABOUT</SectionHeader>
-              <PortableTextLayout text={text} />
-            </div>
-
-            <div className="h-[20rem] w-full"></div>
-             {false && (
-            <div className="min-w-[30vw] w-full h-[80vh] relative rounded-lg overflow-hidden">
-              <Image
-                className="object-cover"
-                fill
-                src={portraitData.link}
-                alt="image"
-              />
-            </div>
-          )}
-          </div>
-        </div>
-        {isDesktop && <QuadraticBottom />}
-      </div> */}
     </>
   );
 };
