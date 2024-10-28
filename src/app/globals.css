@@ -31,6 +31,13 @@
     rgb(var(--background-start-rgb));
 } */
 
+p {
+  max-width: 85ch;
+}
+li {
+  max-width: 65ch;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
