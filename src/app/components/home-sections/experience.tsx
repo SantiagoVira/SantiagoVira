@@ -14,48 +14,11 @@ import SectionHeader from "../ui/section-header";
 const ExperienceSection: React.FC<{ experiences: ExperienceType[] }> = ({
   experiences,
 }) => {
-  // STATE, REFS & EFFECTS
-  const [scrollRange, setScrollRange] = useState(0);
-  const container = useRef<HTMLDivElement>(null);
-  const content = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    content.current?.scrollWidth && setScrollRange(content.current.scrollWidth);
-  }, [content]);
-
   // HOOK CALLS
   const { isDesktop } = useWindowSize();
 
-  // FRAMER MOTION
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end end"],
-  });
-
-  //   const transform = useTransform(
-  //     scrollYProgress,
-  //     [0, 1],
-  //     [0, -scrollRange + (viewportWidth ?? 0)]
-  //   );
-
-  //   const physics = { damping: 15, mass: 0.27, stiffness: 55 };
-  //   const spring = useSpring(transform, physics);
-
   return (
     <>
-      {/* <div
-        ref={container}
-        className="h-[300vh] relative w-full"
-        id="experience">
-        <div className="sticky overflow-hidden top-0 h-screen">
-          <motion.div
-            style={{ x: spring }}
-            ref={content}
-            className="w-fit h-full absolute top-0 flex items-center justify-start">
-            <p className="text-[30rem] font-black mx-10">EXPERIENCE</p>
-          </motion.div>
-        </div>
-      </div> */}
       <div
         className="flex flex-col relative w-full justify-start items-center mt-20"
         id="about">

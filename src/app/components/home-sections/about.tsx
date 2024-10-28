@@ -68,7 +68,12 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   };
 
   const titleTransform = useMoveElement(1, 0, -scrollRange);
-  const descTransform = useMoveElement(1, -0.5, 0, descWidth);
+  const descTransform = useMoveElement(
+    1,
+    0,
+    0,
+    (viewportWidth ?? 0) - descWidth - 100
+  );
   const img1Transform = useMoveElement(0.8, 0);
   const img2Transform = useMoveElement(1.2, -1.5);
   const img3Transform = useMoveElement(2, -1);
