@@ -24,12 +24,18 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
 }) => {
   // STATE, REFS & EFFECTS
   const [scrollRange, setScrollRange] = useState(0);
+  const [descWidth, setDescWidth] = useState(0);
   const container = useRef<HTMLDivElement>(null);
-  const content = useRef<HTMLDivElement>(null);
+  const titleContent = useRef<HTMLDivElement>(null);
+  const descContent = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    content.current?.scrollWidth && setScrollRange(content.current.scrollWidth);
-  }, [content]);
+    titleContent.current?.scrollWidth &&
+      setScrollRange(titleContent.current.scrollWidth);
+
+    descContent.current?.scrollWidth &&
+      setDescWidth(descContent.current.scrollWidth);
+  }, [titleContent, descContent]);
 
   // HOOK CALLS
   const {
@@ -40,7 +46,8 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   const useMoveElement = (
     startCoefficient: number,
     endCoefficient: number,
-    startOffset: number = 0
+    startOffset: number = 0,
+    endOffset: number = 0
   ) => {
     const { scrollYProgress } = useScroll({
       target: container,
@@ -52,7 +59,7 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
       [0, 1],
       [
         startOffset + startCoefficient * (viewportWidth ?? 0),
-        endCoefficient * (viewportWidth ?? 0),
+        endOffset + endCoefficient * (viewportWidth ?? 0),
       ]
     );
 
@@ -61,7 +68,7 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   };
 
   const titleTransform = useMoveElement(1, 0, -scrollRange);
-  const descTransform = useMoveElement(1, -0.5);
+  const descTransform = useMoveElement(1, -0.5, 0, descWidth);
   const img1Transform = useMoveElement(0.8, 0);
   const img2Transform = useMoveElement(1.2, -1.5);
   const img3Transform = useMoveElement(2, -1);
@@ -76,7 +83,7 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
         <div className="sticky overflow-hidden top-0 h-screen">
           <motion.div
             style={{ x: titleTransform }}
-            ref={content}
+            ref={titleContent}
             className="w-fit h-full absolute top-0 flex items-center justify-start">
             <SectionHeader variant="light">ABOUT ME</SectionHeader>
           </motion.div>
@@ -93,19 +100,20 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
             alt="image"
           />
           <motion.img
-            className="object-cover w-32 absolute top-2/3 -z-10 rounded-lg"
+            className="object-cover w-32 absolute top-[60%] -z-10 rounded-lg"
             style={{ x: img3Transform, rotate: "0deg" }}
             src={"/img/bread2.jpeg"}
             alt="image"
           />
           <motion.img
-            className="object-cover w-32 absolute top-2/3 -z-10 rounded-lg"
+            className="object-cover w-32 absolute top-[75%] -z-10 rounded-lg"
             style={{ x: img4Transform, rotate: "-5deg" }}
             src={"/img/bread3.jpeg"}
             alt="image"
           />
           <motion.p
-            className="absolute top-[55%] font-medium text-lg max-w-fit whitespace-nowrap"
+            className="absolute top-[55%] text-2xl max-w-fit whitespace-nowrap"
+            ref={descContent}
             style={{ x: descTransform }}>
             I create elegant, modern designs for everyday use. My full stack
             development experience allows me to craft your ideas into reality. I
