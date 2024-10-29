@@ -81,7 +81,7 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   );
   const img1Transform = useMoveElement(0.8, 0);
   const img1Rotation = useRotateElement(6, -3);
-  const img2Transform = useMoveElement(1.2, -1.5);
+  const img2Transform = useMoveElement(1.2, -0.75);
   const img2Rotation = useRotateElement(-16, 6);
   const img3Transform = useMoveElement(2, -1);
   const img4Transform = useMoveElement(1.5, 0.4);
