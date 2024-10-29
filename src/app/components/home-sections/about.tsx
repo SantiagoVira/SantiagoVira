@@ -13,25 +13,19 @@ import {
 } from "framer-motion";
 import { useLayoutEffect, useRef, useState } from "react";
 import SectionHeader from "../ui/section-header";
+import { useElementWidth } from "@/utils/use-element-width";
 
 const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   text,
   portraitData,
 }) => {
   // STATE, REFS & EFFECTS
-  const [scrollRange, setScrollRange] = useState(0);
-  const [descWidth, setDescWidth] = useState(0);
   const container = useRef<HTMLDivElement>(null);
-  const titleContent = useRef<HTMLDivElement>(null);
-  const descContent = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    titleContent.current?.scrollWidth &&
-      setScrollRange(titleContent.current.scrollWidth);
-
-    descContent.current?.scrollWidth &&
-      setDescWidth(descContent.current.scrollWidth);
-  }, [titleContent, descContent]);
+  const title = useElementWidth<HTMLDivElement>();
+  const desc1 = useElementWidth<HTMLDivElement>();
+  const desc2 = useElementWidth<HTMLDivElement>();
+  const desc3 = useElementWidth<HTMLDivElement>();
+  const desc4 = useElementWidth<HTMLDivElement>();
 
   // HOOK CALLS
   const {
@@ -72,20 +66,25 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
     );
   };
 
-  const titleTransform = useMoveElement(1, 0, -scrollRange);
-  const descTransform = useMoveElement(
-    1,
-    0,
+  const titleTransform = useMoveElement(1, 0.5, -title.width, -title.width / 2);
+  const desc1Transform = useMoveElement(1, 0.5, 10, -0.5 * title.width);
+  const desc2Transform = useMoveElement(2, 0.5, 10, -0.45 * title.width);
+  const desc3Transform = useMoveElement(3, 0.5, 10, -0.45 * title.width);
+  const desc4Transform = useMoveElement(
+    4,
+    0.5,
     10,
-    (viewportWidth ?? 0) - descWidth - 100
+    0.5 * title.width - desc4.width
   );
+
   const img1Transform = useMoveElement(0.8, 0);
-  const img1Rotation = useRotateElement(6, -3);
   const img2Transform = useMoveElement(1.2, 0.1);
-  const img2Rotation = useRotateElement(-16, 6);
-  const img3Transform = useMoveElement(1.5, 0.5);
+  const img3Transform = useMoveElement(1.5, 0.8);
   const img4Transform = useMoveElement(1.5, 0.75);
   const img5Transform = useMoveElement(2, 0.4);
+
+  const img1Rotation = useRotateElement(6, -3);
+  const img2Rotation = useRotateElement(-16, 6);
   const img5Rotation = useRotateElement(5, -5);
 
   return (
@@ -94,7 +93,7 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
         <div className="sticky overflow-hidden top-0 h-screen">
           <motion.div
             style={{ x: titleTransform }}
-            ref={titleContent}
+            ref={title.ref}
             className="w-fit h-full absolute top-0 flex items-center justify-start">
             <SectionHeader variant="light">ABOUT ME</SectionHeader>
           </motion.div>
@@ -111,7 +110,7 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
             alt="image"
           />
           <motion.img
-            className="object-cover w-64 absolute top-[60%] -z-10 rounded-lg"
+            className="object-cover w-64 absolute top-[30%] -z-10 rounded-lg"
             style={{ x: img3Transform, rotate: "0deg" }}
             src={"/img/radish-mockup.jpg"}
             alt="image"
@@ -123,18 +122,34 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
             alt="image"
           />
           <motion.img
-            className="object-cover w-64 absolute top-[20%] -z-10 rounded-lg"
+            className="object-cover w-64 absolute top-[15%] -z-10 rounded-lg"
             style={{ x: img5Transform, rotate: img5Rotation }}
             src={"/img/tricktionary-mockup.jpg"}
             alt="image"
           />
           <motion.p
-            className="absolute top-[55%] text-2xl max-w-fit whitespace-nowrap"
-            ref={descContent}
-            style={{ x: descTransform }}>
-            I create elegant, modern designs for everyday use. My full stack
-            development experience allows me to craft your ideas into reality. I
-            hope you will join me for the journey.
+            className="absolute top-[55%] max-w-fit whitespace-nowrap"
+            ref={desc1.ref}
+            style={{ x: desc1Transform }}>
+            I create elegant, modern designs for everyday use.
+          </motion.p>
+          <motion.p
+            className="absolute top-[calc(55%+20px)] max-w-fit whitespace-nowrap"
+            ref={desc2.ref}
+            style={{ x: desc2Transform }}>
+            My full stack development experience allows me
+          </motion.p>
+          <motion.p
+            className="absolute top-[calc(55%+40px)] max-w-fit whitespace-nowrap"
+            ref={desc3.ref}
+            style={{ x: desc3Transform }}>
+            to craft your ideas into reality.
+          </motion.p>
+          <motion.p
+            className="absolute top-[calc(55%+80px)] max-w-fit whitespace-nowrap"
+            ref={desc4.ref}
+            style={{ x: desc4Transform }}>
+            I hope you will join me for the journey.
           </motion.p>
         </div>
       </div>
