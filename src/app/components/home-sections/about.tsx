@@ -81,15 +81,16 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   );
   const img1Transform = useMoveElement(0.8, 0);
   const img1Rotation = useRotateElement(6, -3);
-  const img2Transform = useMoveElement(1.2, -0.75);
+  const img2Transform = useMoveElement(1.2, 0.1);
   const img2Rotation = useRotateElement(-16, 6);
-  const img3Transform = useMoveElement(2, -1);
-  const img4Transform = useMoveElement(1.5, 0.4);
-  const img5Transform = useMoveElement(2, 0.2);
+  const img3Transform = useMoveElement(1.5, 0.5);
+  const img4Transform = useMoveElement(1.5, 0.75);
+  const img5Transform = useMoveElement(2, 0.4);
+  const img5Rotation = useRotateElement(5, -5);
 
   return (
     <>
-      <div ref={container} className="h-[200vh] relative w-full" id="about">
+      <div ref={container} className="h-[200vh] relative w-screen" id="about">
         <div className="sticky overflow-hidden top-0 h-screen">
           <motion.div
             style={{ x: titleTransform }}
@@ -122,8 +123,8 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
             alt="image"
           />
           <motion.img
-            className="object-cover w-64 absolute top-[25%] -z-10 rounded-lg"
-            style={{ x: img5Transform, rotate: "-5deg" }}
+            className="object-cover w-64 absolute top-[20%] -z-10 rounded-lg"
+            style={{ x: img5Transform, rotate: img5Rotation }}
             src={"/img/tricktionary-mockup.jpg"}
             alt="image"
           />
