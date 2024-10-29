@@ -12,7 +12,7 @@ const ProjectList: React.FC<{ projects: ProjectDataType[] }> = ({
         <Fragment key={i}>
           <Project {...project} />
           {i < projects.length - 1 ? (
-            <hr className="w-full border-accent/60" />
+            <hr className="w-full border-background/60" />
           ) : (
             <></>
           )}

@@ -21,19 +21,17 @@ const ExperienceSection: React.FC<{ experiences: ExperienceType[] }> = ({
     <>
       <div
         className="flex flex-col relative w-full justify-start items-center mt-20"
-        id="about">
-        <div className="border-t-[8vh] border-t-transparent border-l-[50vw] border-l-transparent border-r-[50vw] border-accent border-b-[8vh] w-0 h-0" />
-        <div className="flex flex-col gap-16 relative w-full justify-start h-fit md:h-screen items-center py-24 bg-accent">
-          <SectionHeader variant="dark">EXPERIENCE</SectionHeader>
+        id="experience">
+        <div className="flex flex-col gap-16 relative w-full justify-start h-fit md:h-screen items-center py-24 ">
+          <SectionHeader>EXPERIENCE</SectionHeader>
           <Accordion
             type="multiple"
-            className="md:max-w-[60rem] md:w-4/5 w-full mb-32 px-12 md:px-0 text-background ">
+            className="md:max-w-[60rem] md:w-4/5 w-full mb-32 px-12 md:px-0 text-accent ">
             {experiences.map((e, i) => (
               <ExperienceItem {...e} key={i} />
             ))}
           </Accordion>
         </div>
-        {isDesktop && <QuadraticBottom />}
       </div>
     </>
   );

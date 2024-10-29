@@ -41,6 +41,10 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   const {
     windowSize: { width: viewportWidth },
   } = useWindowSize();
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end end"],
+  });
 
   // FRAMER MOTION
   const useMoveElement = (
@@ -49,11 +53,6 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
     startOffset: number = 0,
     endOffset: number = 0
   ) => {
-    const { scrollYProgress } = useScroll({
-      target: container,
-      offset: ["start start", "end end"],
-    });
-
     const transform = useTransform(
       scrollYProgress,
       [0, 1],
@@ -66,25 +65,33 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
     const physics = { damping: 15, mass: 0.27, stiffness: 55 };
     return useSpring(transform, physics);
   };
+  const useRotateElement = (startVal: number, endVal: number) => {
+    const physics = { damping: 15, mass: 0.27, stiffness: 55 };
+    return useSpring(
+      useTransform(
+        useTransform(scrollYProgress, [0, 1], [startVal, endVal]),
+        (v) => `${v}deg`
+      ),
+      physics
+    );
+  };
 
   const titleTransform = useMoveElement(1, 0, -scrollRange);
   const descTransform = useMoveElement(
     1,
     0,
-    0,
+    10,
     (viewportWidth ?? 0) - descWidth - 100
   );
   const img1Transform = useMoveElement(0.8, 0);
+  const img1Rotation = useRotateElement(6, -3);
   const img2Transform = useMoveElement(1.2, -1.5);
   const img3Transform = useMoveElement(2, -1);
   const img4Transform = useMoveElement(2, 0.4);
 
   return (
     <>
-      <div
-        ref={container}
-        className="h-[300vh] relative w-full"
-        id="experience">
+      <div ref={container} className="h-[300vh] relative w-full" id="about">
         <div className="sticky overflow-hidden top-0 h-screen">
           <motion.div
             style={{ x: titleTransform }}
@@ -94,7 +101,7 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
           </motion.div>
           <motion.img
             className="object-cover w-48 absolute top-[15%] -z-10 rounded-lg"
-            style={{ x: img1Transform, rotate: "6deg" }}
+            style={{ x: img1Transform, rotate: img1Rotation }}
             src={portraitData.link}
             alt="Me :)"
           />

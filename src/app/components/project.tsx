@@ -18,23 +18,23 @@ const Project: React.FC<ProjectDataType> = ({
   const { isDesktop } = useWindowSize();
   return (
     <div
-      className={`py-8 flex  items-start peer justify-between gap-24 rounded-lg w-full h-full transition-all duration-[400ms] group-hover:opacity-40 group-hover:hover:opacity-100 `}>
-      {isDesktop && <p className="text-accent/60 font-bold">{year}</p>}
+      className={`py-6 flex  items-start peer justify-between gap-24 rounded-lg w-full h-full transition-all duration-[400ms] group-hover:opacity-40 group-hover:hover:opacity-100 `}>
+      {isDesktop && <p className="text-background/60 font-bold">{year}</p>}
       <div className="flex items-start justify-start flex-col flex-1 gap-1">
         <Link
           href={link ?? "/"}
-          className={`text-accent w-full ${
+          className={`text-background w-full ${
             link ? "cursor-ne-resize" : "cursor-default pointer-events-none"
           } mt-2 inline-block`}
           target="_blank"
           aria-disabled={!link}>
           <div className="flex items-start justify-start flex-col flex-1 gap-1 group/box">
-            <p className="text-accent/80 text-xs">{category}</p>
+            <p className="text-background/80 text-xs">{category}</p>
             <UnderlineHover disabled={!link}>
-              <h3 className="font-bold text-2xl text-accent">{title}</h3>
+              <h3 className="font-bold text-2xl text-background">{title}</h3>
             </UnderlineHover>
 
-            <p className="text-accent/75">{description}</p>
+            <p className="text-background/75">{description}</p>
           </div>
         </Link>
         <div className="flex items-center gap-[0.33rem]">
@@ -42,7 +42,7 @@ const Project: React.FC<ProjectDataType> = ({
             <UnderlineHover thin>
               <Link
                 href={codeLink}
-                className="text-accent mt-2 inline-block"
+                className="text-background mt-2 inline-block"
                 target="_blank">
                 View Code
               </Link>
@@ -55,7 +55,7 @@ const Project: React.FC<ProjectDataType> = ({
             <UnderlineHover thin>
               <Link
                 href={caseStudyLink}
-                className="text-accent mt-2 inline-block"
+                className="text-background mt-2 inline-block"
                 target="_blank">
                 See Case Study
               </Link>
