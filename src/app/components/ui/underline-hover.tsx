@@ -3,12 +3,14 @@ import { cn } from "@utils/cn";
 const UnderlineHover: React.FC<
   React.PropsWithChildren<{
     variant?: "ltol" | "ltor";
+    color?: "light" | "dark";
     thin?: boolean;
     disabled?: boolean;
     className?: string;
   }>
 > = ({
   variant = "ltor",
+  color = "light",
   thin = false,
   disabled = false,
   className = "",
@@ -18,7 +20,8 @@ const UnderlineHover: React.FC<
     <div
       className={cn(
         "relative",
-        "after:bg-accent after:w-full after:absolute after:bottom-0 after:left-0 after:scale-x-0 after:transition-transform",
+        "after:w-full after:absolute after:bottom-0 after:left-0 after:scale-x-0 after:transition-transform",
+        color === "light" ? "after:bg-accent" : "after:bg-background",
         !disabled &&
           "hover:after:scale-x-100 hover:after:origin-left group-hover/box:after:scale-x-100 group-hover/box:after:origin-left",
         thin ? "after:h-[1px]" : "after:h-[2px]",

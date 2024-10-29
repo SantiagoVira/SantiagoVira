@@ -14,7 +14,7 @@ const ProjectsPage: React.FC = async () => {
         ALL PROJECTS
       </h2>
 
-      <ProjectList projects={allProjects} />
+      <ProjectList projects={allProjects} colorVariant="dark-bg" />
 
       <ReturnToTop />
     </div>

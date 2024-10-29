@@ -32,7 +32,7 @@ const ProjectsSection: React.FC<{
         <div className="w-screen mt-2 max-w-[60rem] px-12">
           <Marquee autoFill={true} pauseOnClick>
             <div className="gap-2 mx-1 uppercase flex text-background">
-              <UnderlineHover>
+              <UnderlineHover color="dark">
                 <TransitionLink href="/projects">
                   View all projects
                 </TransitionLink>
