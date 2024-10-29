@@ -62,7 +62,7 @@ const Footer: React.FC<{ resumeData: FileType }> = ({ resumeData }) => {
     return (
       <motion.div
         ref={parentRef}
-        className="w-full mt-24 h-[15.5rem]"
+        className="w-full h-[15.5rem] mt-24 "
         style={{ clipPath }}>
         <div className="h-[15.5rem] gap-3 fixed w-full bottom-0 bg-darkBackground flex flex-col justify-center items-center">
           <div className="w-52 aspect-square absolute -top-20 -left-20">

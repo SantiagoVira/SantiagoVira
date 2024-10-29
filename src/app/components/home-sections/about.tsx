@@ -106,13 +106,13 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
           <motion.img
             className="object-cover w-80 absolute top-2/3 -z-10 rounded-lg"
             style={{ x: img2Transform, rotate: img2Rotation }}
-            src={"/img/radish-mockup.jpg"}
+            src={"/img/drafty-mockup.jpg"}
             alt="image"
           />
           <motion.img
             className="object-cover w-64 absolute top-[60%] -z-10 rounded-lg"
             style={{ x: img3Transform, rotate: "0deg" }}
-            src={"/img/tricktionary-mockup.jpg"}
+            src={"/img/radish-mockup.jpg"}
             alt="image"
           />
           <motion.img
@@ -124,7 +124,7 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
           <motion.img
             className="object-cover w-64 absolute top-[25%] -z-10 rounded-lg"
             style={{ x: img5Transform, rotate: "-5deg" }}
-            src={"/img/drafty-mockup.jpg"}
+            src={"/img/tricktionary-mockup.jpg"}
             alt="image"
           />
           <motion.p

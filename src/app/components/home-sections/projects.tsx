@@ -17,22 +17,22 @@ const ProjectsSection: React.FC<{
   return (
     <>
       <div className="border-t-[8vh] mt-20 border-t-transparent border-l-[50vw] border-l-transparent border-r-[50vw] border-accent border-b-[8vh] w-0 h-0" />
-      <div className="w-full bg-accent pb-16 flex flex-col items-center">
+      <div className="w-full pb-16 flex flex-col items-center">
         <div
           className="flex flex-col w-full justify-start items-center max-w-[60rem] gap-4 pt-10"
           id="projects">
           <div className="w-screen px-12 mb-5">
-            <SectionHeader className="font-dunk text-4xl md:text-6xl text-background text-center">
+            <SectionHeader className="font-dunk text-4xl md:text-6xl text-accent text-center">
               TOP PROJECTS
             </SectionHeader>
           </div>
 
-          <ProjectList projects={topProjects} />
+          <ProjectList projects={topProjects} colorVariant="dark-bg" />
         </div>
-        <div className="w-screen mt-2 max-w-[60rem] px-12">
+        <div className="w-screen mt-2 max-w-[60rem] px-12 py-10">
           <Marquee autoFill={true} pauseOnClick>
-            <div className="gap-2 mx-1 uppercase flex text-background">
-              <UnderlineHover color="dark">
+            <div className="gap-2 mx-1 uppercase flex text-accent">
+              <UnderlineHover color="light">
                 <TransitionLink href="/projects">
                   View all projects
                 </TransitionLink>
@@ -43,7 +43,6 @@ const ProjectsSection: React.FC<{
           </Marquee>
         </div>
       </div>
-      {isDesktop && <QuadraticBottom />}
     </>
   );
 };
