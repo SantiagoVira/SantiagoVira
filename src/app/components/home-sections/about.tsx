@@ -86,6 +86,7 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   const img1Transform = useMoveElement(0.8, 0);
   const img1Rotation = useRotateElement(6, -3);
   const img2Transform = useMoveElement(1.2, -1.5);
+  const img2Rotation = useRotateElement(-16, 6);
   const img3Transform = useMoveElement(2, -1);
   const img4Transform = useMoveElement(2, 0.4);
 
@@ -106,9 +107,9 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
             alt="Me :)"
           />
           <motion.img
-            className="object-cover w-32 absolute top-2/3 -z-10 rounded-lg"
-            style={{ x: img2Transform, rotate: "-22deg" }}
-            src={"/img/bread1.jpeg"}
+            className="object-cover w-80 absolute top-2/3 -z-10 rounded-lg"
+            style={{ x: img2Transform, rotate: img2Rotation }}
+            src={"/img/radish-mockup.jpg"}
             alt="image"
           />
           <motion.img
