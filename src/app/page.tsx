@@ -33,7 +33,7 @@ const Home = async () => {
       <Hero />
       <AboutSection text={aboutBlurb.body} portraitData={portraitData} />
       <ProjectsSection topProjects={topProjects} />
-      <ExperienceSection experiences={experienceData} />
+      {/* <ExperienceSection experiences={experienceData} /> */}
       <Footer resumeData={resumeData} />
     </>
   );

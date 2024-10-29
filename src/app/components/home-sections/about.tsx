@@ -14,10 +14,6 @@ import {
 import { useLayoutEffect, useRef, useState } from "react";
 import SectionHeader from "../ui/section-header";
 
-import Bread1 from "@images/bread1.jpeg";
-import Bread2 from "@images/bread2.jpeg";
-import Bread3 from "@images/bread3.jpeg";
-
 const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   text,
   portraitData,
@@ -88,11 +84,12 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   const img2Transform = useMoveElement(1.2, -1.5);
   const img2Rotation = useRotateElement(-16, 6);
   const img3Transform = useMoveElement(2, -1);
-  const img4Transform = useMoveElement(2, 0.4);
+  const img4Transform = useMoveElement(1.5, 0.4);
+  const img5Transform = useMoveElement(2, 0.2);
 
   return (
     <>
-      <div ref={container} className="h-[300vh] relative w-full" id="about">
+      <div ref={container} className="h-[200vh] relative w-full" id="about">
         <div className="sticky overflow-hidden top-0 h-screen">
           <motion.div
             style={{ x: titleTransform }}
@@ -113,15 +110,21 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
             alt="image"
           />
           <motion.img
-            className="object-cover w-32 absolute top-[60%] -z-10 rounded-lg"
+            className="object-cover w-64 absolute top-[60%] -z-10 rounded-lg"
             style={{ x: img3Transform, rotate: "0deg" }}
-            src={"/img/bread2.jpeg"}
+            src={"/img/tricktionary-mockup.jpg"}
             alt="image"
           />
           <motion.img
-            className="object-cover w-32 absolute top-[75%] -z-10 rounded-lg"
+            className="object-cover w-64 absolute top-[75%] -z-10 rounded-lg"
             style={{ x: img4Transform, rotate: "-5deg" }}
-            src={"/img/bread3.jpeg"}
+            src={"/img/radial-grid-mockup.jpg"}
+            alt="image"
+          />
+          <motion.img
+            className="object-cover w-64 absolute top-[25%] -z-10 rounded-lg"
+            style={{ x: img5Transform, rotate: "-5deg" }}
+            src={"/img/drafty-mockup.jpg"}
             alt="image"
           />
           <motion.p
