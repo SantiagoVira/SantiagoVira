@@ -3,7 +3,12 @@
 import { cn } from "@/utils/cn";
 import { useElementWidth } from "@/utils/use-element-width";
 import useWindowSize from "@/utils/use-window-size";
-import { MotionValue, useMotionValueEvent, useScroll } from "framer-motion";
+import {
+  MotionValue,
+  useMotionValue,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
 import { MouseEventHandler, useEffect, useRef } from "react";
 
 const CurveBox: React.FC<{ progressOffset: MotionValue<number> }> = ({
@@ -11,13 +16,21 @@ const CurveBox: React.FC<{ progressOffset: MotionValue<number> }> = ({
 }) => {
   return (
     <div className="w-24 h-24 relative">
-      <Curve moveY={true} className="absolute top-[1px] left-0" />
+      <Curve
+        progressOffset={useMotionValue(0)}
+        moveY={true}
+        className="absolute top-[1px] left-0"
+      />
       <Curve
         progressOffset={progressOffset}
         moveY={false}
         className="absolute top-1/2 -left-1/2 -rotate-90"
       />
-      <Curve moveY={true} className="absolute bottom-[-1px] right-0" />
+      <Curve
+        progressOffset={useMotionValue(0)}
+        moveY={true}
+        className="absolute bottom-[-1px] right-0"
+      />
       <Curve
         progressOffset={progressOffset}
         moveY={false}
@@ -28,7 +41,7 @@ const CurveBox: React.FC<{ progressOffset: MotionValue<number> }> = ({
 };
 
 const Curve: React.FC<{
-  progressOffset?: MotionValue<number>;
+  progressOffset: MotionValue<number>;
   moveY: boolean;
   className?: string;
 }> = ({ moveY, progressOffset, className = "" }) => {
@@ -38,19 +51,12 @@ const Curve: React.FC<{
   let time = 0;
   let reqId: number | null = null;
 
-  useEffect(() => {
+  useMotionValueEvent(progressOffset, "change", (v) => {
+    if (reqId !== null) return;
+
+    progress = progressOffset.get() / 50;
     setPath(progress);
-  }, [container.width]);
-
-  if (progressOffset) {
-    useMotionValueEvent(progressOffset, "change", (v) => {
-      if (reqId !== null) return;
-
-      progress = progressOffset.get() / 50;
-      setPath(progress);
-      console.log(v, Math.log(progressOffset.get()));
-    });
-  }
+  });
 
   const setPath = (progress: number) => {
     pathRef.current?.setAttributeNS(
@@ -59,6 +65,9 @@ const Curve: React.FC<{
       `M0 50 Q${container.width / 2} ${50 + progress}, ${container.width} 50`
     );
   };
+  useEffect(() => {
+    setPath(progress);
+  }, [container.width, progress]);
 
   const onMouseEnter: MouseEventHandler<HTMLDivElement> = (e) => {
     if (reqId !== null) {
