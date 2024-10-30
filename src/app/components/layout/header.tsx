@@ -16,7 +16,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-evenly gap-6">
           <NavLink id="about">ABOUT</NavLink>
           <NavLink id="projects">PROJECTS</NavLink>
-          <NavLink id="experience">EXPERIENCE</NavLink>
+          <NavLink id="contact">CONTACT</NavLink>
         </div>
       )}
     </div>

@@ -7,17 +7,29 @@ const Hero: React.FC = () => {
   const { isDesktop } = useWindowSize();
   if (isDesktop) {
     return (
-      <div className="flex flex-col w-full h-[105vh] select-none max-w-[58rem] origin-top justify-center items-center scale-y-150">
-        <h1 className="font-dunk text-9xl mr-auto text-accent">
-          SAN <ChangingTidbit delay={1750} className="scale-y-[0.66] " />
-        </h1>
-        <h1 className="font-dunk text-9xl ml-auto text-accent ">
-          <ChangingTidbit delay={1500} className="scale-y-[0.66] " /> TIAGO
-          <br />
-          <span className="opacity-0">
-            _<br />_
-          </span>
-        </h1>
+      <div className="flex flex-col w-full h-[105vh] select-none max-w-[60rem] origin-top justify-center gap-6 items-center">
+        <p className="uppercase mr-auto">Fullstack developer</p>
+        <div className="flex items-center justify-start gap-8 w-full scale-y-150 mb-4">
+          <h1
+            className="font-dunk text-9xl text-accent "
+            style={{ lineHeight: 1.33 }}>
+            SAN
+          </h1>
+          <ChangingTidbit
+            delay={1750}
+            className="mr-auto text-9xl scale-y-[0.66] font-dunk"
+          />
+        </div>
+        <div className="flex items-center justify-start gap-8 w-full">
+          <ChangingTidbit delay={1500} className="ml-auto text-9xl font-dunk" />
+
+          <h1
+            className="font-dunk text-9xl text-accent scale-y-150 origin-left"
+            style={{ lineHeight: 0.57 }}>
+            TIAGO
+          </h1>
+        </div>
+        <p className="uppercase ml-auto">UI/UX Designer</p>
       </div>
     );
   } else {

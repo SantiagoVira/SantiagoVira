@@ -73,7 +73,12 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
     );
   };
 
-  const titleTransform = useMoveElement(1, 0.5, -title.width, -title.width / 2);
+  const titleTransform = useMoveElement(
+    1,
+    0.5,
+    -title.width - 20,
+    -title.width / 2
+  );
   const desc1Transform = useMoveElement(1, 0.5, 10, -0.5 * title.width);
   const desc2Transform = useMoveElement(2, 0.5, 10, -0.45 * title.width);
   const desc3Transform = useMoveElement(3, 0.5, 10, -0.45 * title.width);
@@ -84,7 +89,7 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
     0.5 * title.width - desc4.width
   );
 
-  const img1Transform = useMoveElement(0.8, 0);
+  const img1Transform = useMoveElement(1.2, 0);
   const img2Transform = useMoveElement(1.2, 0.1);
   const img3Transform = useMoveElement(1.5, 0.8);
   const img4Transform = useMoveElement(1.5, 0.75);
@@ -114,7 +119,7 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
           <motion.div
             className="object-cover w-80 absolute top-2/3 z-50 rounded-lg"
             style={{ x: flopBoxTransform }}>
-            <CurveBox progressOffset={smoothVelocity} />
+            {/* <CurveBox progressOffset={smoothVelocity} /> */}
           </motion.div>
           <motion.img
             className="object-cover w-80 absolute top-2/3 -z-10 rounded-lg"
