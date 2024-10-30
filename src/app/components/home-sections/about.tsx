@@ -10,10 +10,12 @@ import {
   useScroll,
   useSpring,
   useTransform,
+  useVelocity,
 } from "framer-motion";
 import { useLayoutEffect, useRef, useState } from "react";
 import SectionHeader from "../ui/section-header";
 import { useElementWidth } from "@/utils/use-element-width";
+import CurveBox from "../curve-box";
 
 const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   text,
@@ -31,9 +33,14 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   const {
     windowSize: { width: viewportWidth },
   } = useWindowSize();
-  const { scrollYProgress } = useScroll({
+  const { scrollYProgress, scrollY } = useScroll({
     target: container,
     offset: ["start start", "end end"],
+  });
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, {
+    damping: 50,
+    stiffness: 400,
   });
 
   // FRAMER MOTION
@@ -82,6 +89,7 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   const img3Transform = useMoveElement(1.5, 0.8);
   const img4Transform = useMoveElement(1.5, 0.75);
   const img5Transform = useMoveElement(2, 0.4);
+  const flopBoxTransform = useMoveElement(0.5, -1);
 
   const img1Rotation = useRotateElement(6, -3);
   const img2Rotation = useRotateElement(-16, 6);
@@ -103,6 +111,11 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
             src={portraitData.link}
             alt="Me :)"
           />
+          <motion.div
+            className="object-cover w-80 absolute top-2/3 z-50 rounded-lg"
+            style={{ x: flopBoxTransform }}>
+            <CurveBox progressOffset={smoothVelocity} />
+          </motion.div>
           <motion.img
             className="object-cover w-80 absolute top-2/3 -z-10 rounded-lg"
             style={{ x: img2Transform, rotate: img2Rotation }}
