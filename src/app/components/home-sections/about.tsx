@@ -1,21 +1,17 @@
 "use client";
 
-import QuadraticBottom from "@components/quadratic-bottom";
-import PortableTextLayout from "@utils/portable-text";
 import { FileType } from "@/sanity-helpers";
 import useWindowSize from "@/utils/use-window-size";
 import {
   motion,
-  MotionValue,
   useScroll,
   useSpring,
   useTransform,
   useVelocity,
 } from "framer-motion";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import SectionHeader from "../ui/section-header";
 import { useElementWidth } from "@/utils/use-element-width";
-import CurveBox from "../curve-box";
 import { Quadratic } from "../quadratic";
 
 const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
@@ -33,17 +29,18 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   // HOOK CALLS
   const {
     windowSize: { width: viewportWidth },
+    isMobile,
   } = useWindowSize();
   const { scrollYProgress, scrollY } = useScroll({
     target: container,
     offset: ["start end", "end end"],
   });
 
-  const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, {
-    damping: 50,
-    stiffness: 400,
-  });
+  // const scrollVelocity = useVelocity(scrollY);
+  // const smoothVelocity = useSpring(scrollVelocity, {
+  //   damping: 50,
+  //   stiffness: 400,
+  // });
 
   // FRAMER MOTION
   const useMoveElement = (
@@ -75,12 +72,10 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
     );
   };
 
-  const titleTransform = useMoveElement(
-    1,
-    0.5,
-    -title.width - 20,
-    -title.width / 2
-  );
+  const title_vals: [number, number, number, number] = isMobile
+    ? [0.1, 0.1, 0, 0]
+    : [1, 0.5, -title.width - 20, -title.width / 2];
+  const titleTransform = useMoveElement(...title_vals);
   const desc1Transform = useMoveElement(1, 0.5, 10, -0.5 * title.width);
   const desc2Transform = useMoveElement(2, 0.5, 10, -0.45 * title.width);
   const desc3Transform = useMoveElement(3, 0.5, 10, -0.45 * title.width);
@@ -96,7 +91,6 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   const img3Transform = useMoveElement(1.5, 0.8);
   const img4Transform = useMoveElement(1.5, 0.75);
   const img5Transform = useMoveElement(2, 0.4);
-  const flopBoxTransform = useMoveElement(0.5, -1);
 
   const img1Rotation = useRotateElement(6, -3);
   const img2Rotation = useRotateElement(-16, 6);
@@ -120,64 +114,75 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
             src={portraitData.link}
             alt="Me :)"
           />
-          <motion.div
-            className="object-cover w-80 absolute top-2/3 z-50 rounded-lg"
-            style={{ x: flopBoxTransform }}>
-            {/* <CurveBox progressOffset={smoothVelocity} /> */}
-          </motion.div>
           <motion.img
             className="object-cover w-80 absolute top-2/3 -z-10 rounded-lg"
             style={{ x: img2Transform, rotate: img2Rotation }}
             src={"/img/drafty-mockup.jpg"}
             alt="image"
           />
-          <motion.img
-            className="object-cover w-64 absolute top-[30%] -z-10 rounded-lg"
-            style={{ x: img3Transform, rotate: "0deg" }}
-            src={"/img/radish-mockup.jpg"}
-            alt="image"
-          />
-          <motion.img
-            className="object-cover w-64 absolute top-[75%] -z-10 rounded-lg"
-            style={{ x: img4Transform, rotate: "-5deg" }}
-            src={"/img/radial-grid-mockup.jpg"}
-            alt="image"
-          />
-          <motion.img
-            className="object-cover w-64 absolute top-[15%] -z-10 rounded-lg"
-            style={{ x: img5Transform, rotate: img5Rotation }}
-            src={"/img/tricktionary-mockup.jpg"}
-            alt="image"
-          />
-          <motion.p
-            className="absolute top-[55%] max-w-fit whitespace-nowrap"
-            ref={desc1.ref}
-            style={{ x: desc1Transform }}>
-            I create elegant, modern designs for everyday use.
-          </motion.p>
-          <motion.p
-            className="absolute top-[calc(55%+20px)] max-w-fit whitespace-nowrap"
-            ref={desc2.ref}
-            style={{ x: desc2Transform }}>
-            My full stack development experience allows me
-          </motion.p>
-          <motion.p
-            className="absolute top-[calc(55%+40px)] max-w-fit whitespace-nowrap"
-            ref={desc3.ref}
-            style={{ x: desc3Transform }}>
-            to craft your ideas into reality.
-          </motion.p>
-          <motion.p
-            className="absolute top-[calc(55%+80px)] max-w-fit whitespace-nowrap"
-            ref={desc4.ref}
-            style={{ x: desc4Transform }}>
-            I hope you will join me for the journey.
-          </motion.p>
+          {!isMobile && (
+            <>
+              <motion.img
+                className="object-cover w-64 absolute top-[22%] -z-10 rounded-lg"
+                style={{ x: img3Transform, rotate: "0deg" }}
+                src={"/img/radish-mockup.jpg"}
+                alt="image"
+              />
+              <motion.img
+                className="object-cover w-64 absolute top-[75%] -z-10 rounded-lg"
+                style={{ x: img4Transform, rotate: "-5deg" }}
+                src={"/img/radial-grid-mockup.jpg"}
+                alt="image"
+              />
+              <motion.img
+                className="object-cover w-64 absolute top-[15%] -z-10 rounded-lg"
+                style={{ x: img5Transform, rotate: img5Rotation }}
+                src={"/img/tricktionary-mockup.jpg"}
+                alt="image"
+              />
+            </>
+          )}
+
+          {isMobile ? (
+            <p className="absolute top-[55%] max-w-[80%] ml-[15%]">
+              I create elegant, modern designs for everyday use. Allow me to
+              craft your ideas into reality.
+            </p>
+          ) : (
+            <>
+              <motion.p
+                className="absolute top-[55%] max-w-fit whitespace-nowrap"
+                ref={desc1.ref}
+                style={{ x: desc1Transform }}>
+                I create elegant, modern designs for everyday use.
+              </motion.p>
+              <motion.p
+                className="absolute top-[calc(55%+20px)] max-w-fit whitespace-nowrap"
+                ref={desc2.ref}
+                style={{ x: desc2Transform }}>
+                My full stack development experience allows me
+              </motion.p>
+              <motion.p
+                className="absolute top-[calc(55%+40px)] max-w-fit whitespace-nowrap"
+                ref={desc3.ref}
+                style={{ x: desc3Transform }}>
+                to craft your ideas into reality.
+              </motion.p>
+              <motion.p
+                className="absolute top-[calc(55%+80px)] max-w-fit whitespace-nowrap"
+                ref={desc4.ref}
+                style={{ x: desc4Transform }}>
+                I hope you will join me for the journey.
+              </motion.p>
+            </>
+          )}
         </div>
       </div>
-      <div className="w-full mt-28 mb-20 px-[5%]">
-        <Quadratic />
-      </div>
+      {!isMobile && (
+        <div className="w-full mt-28 mb-20 px-[5%]">
+          <Quadratic />
+        </div>
+      )}
     </>
   );
 };
