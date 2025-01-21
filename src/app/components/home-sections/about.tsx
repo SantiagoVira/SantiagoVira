@@ -16,6 +16,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import SectionHeader from "../ui/section-header";
 import { useElementWidth } from "@/utils/use-element-width";
 import CurveBox from "../curve-box";
+import { Quadratic } from "../quadratic";
 
 const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   text,
@@ -35,8 +36,9 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   } = useWindowSize();
   const { scrollYProgress, scrollY } = useScroll({
     target: container,
-    offset: ["start start", "end end"],
+    offset: ["start end", "end end"],
   });
+
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
     damping: 50,
@@ -100,9 +102,11 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
   const img2Rotation = useRotateElement(-16, 6);
   const img5Rotation = useRotateElement(5, -5);
 
+  // CHANGE HEIGHT OF CONTAINER DIV TO PIN
+
   return (
     <>
-      <div ref={container} className="h-[200vh] relative w-screen" id="about">
+      <div ref={container} className="h-[100vh] relative w-screen " id="about">
         <div className="sticky overflow-hidden top-0 h-screen">
           <motion.div
             style={{ x: titleTransform }}
@@ -170,6 +174,9 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
             I hope you will join me for the journey.
           </motion.p>
         </div>
+      </div>
+      <div className="w-full mt-28 mb-20 px-[5%]">
+        <Quadratic />
       </div>
     </>
   );
