@@ -24,7 +24,7 @@ const Project: React.FC<ProjectProps> = ({
   const { isDesktop } = useWindowSize();
   return (
     <div
-      className={`py-6 flex  items-start peer justify-between gap-24 rounded-lg w-full h-full transition-all duration-[400ms] group-hover:opacity-40 group-hover:hover:opacity-100 `}>
+      className={`py-6 flex  items-start peer justify-between gap-24 rounded-lg w-full h-full transition-all duration-300 group-hover:opacity-40 group-hover:hover:opacity-100 `}>
       {isDesktop && (
         <p
           className={cn(
