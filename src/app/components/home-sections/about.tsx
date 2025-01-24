@@ -100,7 +100,10 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
 
   return (
     <>
-      <div ref={container} className="h-[100vh] relative w-full " id="about">
+      <div
+        ref={container}
+        className="h-[100vh] relative w-full overflow-hidden"
+        id="about">
         <div className="sticky overflow-hidden top-0 h-screen">
           <motion.div
             style={{ x: titleTransform }}
