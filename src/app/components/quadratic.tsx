@@ -1,5 +1,6 @@
 import { cn } from "@/utils/cn";
 import { useElementWidth } from "@/utils/use-element-width";
+import useWindowSize from "@/utils/use-window-size";
 import { MouseEventHandler, useCallback, useEffect, useRef } from "react";
 
 export const Quadratic: React.FC<{
@@ -10,6 +11,7 @@ export const Quadratic: React.FC<{
   let progress = 0;
   let time = 0;
   let reqId: number | null = null;
+  const { windowSize } = useWindowSize();
 
   const setPath = useCallback(
     (progress: number) => {
@@ -19,11 +21,13 @@ export const Quadratic: React.FC<{
         `M0 50 Q${container.width / 2} ${50 + progress}, ${container.width} 50`
       );
     },
-    [container.width]
+    [container]
   );
   useEffect(() => {
+    if (!windowSize.width) return;
+    container.width = windowSize.width * 0.9;
     setPath(progress);
-  }, [container.width, progress, setPath]);
+  }, [container, progress, setPath, windowSize]);
 
   const onMouseEnter: MouseEventHandler<HTMLDivElement> = (e) => {
     if (reqId !== null) {

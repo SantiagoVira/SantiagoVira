@@ -100,7 +100,7 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
 
   return (
     <>
-      <div ref={container} className="h-[100vh] relative w-screen " id="about">
+      <div ref={container} className="h-[100vh] relative w-full " id="about">
         <div className="sticky overflow-hidden top-0 h-screen">
           <motion.div
             style={{ x: titleTransform }}
@@ -179,7 +179,7 @@ const AboutSection: React.FC<{ text: any[]; portraitData: FileType }> = ({
         </div>
       </div>
       {!isMobile && (
-        <div className="w-full mt-28 mb-20 px-[5%]">
+        <div className="w-[90%] mt-28 mb-20">
           <Quadratic />
         </div>
       )}
