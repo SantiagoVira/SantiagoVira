@@ -21,7 +21,7 @@ const ProjectsSection: React.FC<{
         <div
           className="flex flex-col w-full justify-start items-center max-w-[60rem] gap-4 pt-10"
           id="projects">
-          <div className="w-screen px-12 mb-5">
+          <div className="px-12 mb-5">
             <SectionHeader className="font-dunk text-4xl md:text-6xl text-accent text-center">
               TOP PROJECTS
             </SectionHeader>
